@@ -1,0 +1,5 @@
+
+    standard link: #0000EE (blue)
+    visited link: #551A8B (purple)
+    active link: #EE0000 (red)
+

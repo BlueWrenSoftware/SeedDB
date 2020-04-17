@@ -1,0 +1,221 @@
+/* Start of default settings */
+header, section, article, aside, nav, footer, video, address, figure, figcaption {
+	display: block;
+}
+* {
+	margin: 0px;
+	padding: 0px;
+}
+@font-face {
+	font-family: VuSerif;
+	src: url("../fonts/DejaVuSerif.ttf") format("truetype");
+	font-style: normal;
+}
+@font-face {
+	font-family: VuSerif;
+	src: url("../fonts/DejaVuSerif-Italic.ttf") format("truetype");
+	font-style: italic;
+}
+@font-face {
+	font-family: VuSans;
+	src: url("../fonts/DejaVuSans.ttf") format("truetype");
+	font-style: normal;
+}
+@font-face {
+	font-family: VuMono;
+	src: url("../fonts/DejaVuSansMono.ttf") format("truetype");
+	font-style: normal;
+}
+body {
+	font-family: VuSerif; 
+	font-size: 1em;
+	font-weight: normal;
+	background-color: #f5f8fa; 
+	/* background-image: url("../images/tuxybackground.png");
+	background-position: top;
+	background-repeat: no-repeat; */
+}
+article {
+	padding-left: 38px;
+}
+article li {
+	padding-left: 0.6em;
+	padding-bottom: 0.35em;
+	line-height: 1.3em;
+}
+article ul {
+	padding-left: 2em;
+}
+figcaption {
+	font-size: 0.9em;
+	font-style: italic;
+}
+figure {
+	text-align: center;
+}
+figure img {
+	padding: 0.15em;
+	border: 0.025em solid silver;
+}
+
+h1{
+	text-align: center;
+	font-family: VuSans;
+	font-size:1.3em;
+	font-weight: normal;
+}
+h2 {
+	text-align: center;
+	font-family: VuSans;
+	font-size: 1.2em;
+	font-weight: normal;
+	padding-top: 1.5em;
+	padding-bottom: 0.45em;
+}
+h3 {
+	font-family: VuSans;
+	font-size: 1.1em;
+	font-weight: normal;
+	padding-top: 0.6em;
+	padding-bottom: 0.3em;
+}
+p {
+	padding-bottom: 0.7em;
+	line-height: 1.3em;
+}
+code, pre {
+	background-color: #d3d3d3;
+}
+code {
+	font-family: VuMono;
+	font-size: 0.9em;
+	/*background-color: #CCCCCC;*/
+}
+pre {
+ 	overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+ 	white-space: pre-wrap; /* css-3 */
+ 	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+ 	white-space: -pre-wrap; /* Opera 4-6 */
+ 	white-space: -o-pre-wrap; /* Opera 7 */
+ 	width: 100%;
+ 	word-wrap: break-word; /* Internet Explorer 5.5+ */
+ 	padding: 0.3em;
+}
+#wrapper {
+	width: 750px;
+	margin: 0 auto;	
+}
+#pageHeader {
+	text-align: center;
+	padding-top: 0.5em;
+	height: auto;
+	border-bottom: 0.025em solid #CCCCCC;
+	padding-bottom: 0.5em;
+	margin-bottom: 0.1em;
+}
+#pageFooter {
+	clear: both;
+	border-top: 0.025em solid #CCCCCC;
+	margin-top: 1em;
+	padding-top: 0.5em;
+	text-align: center;
+}
+#pageFooter p {
+	font-size: 0.85em;
+}
+.floatLeft{
+	float: left;
+}
+.menuIcon{
+	display: block;
+	position: fixed;
+	top: 0.5em;
+	height: 35px;
+	width:37px;
+	/*float: left;*/
+	background: url("../images/hamburger_link.svg") no-repeat;
+	background-position: center;
+}
+.menuIcon:visited:after {
+	background: url("../images/hamburger_visited.svg") no-repeat;
+}
+.menuIcon:hover {
+	background: url("../images/hamburger_hover.svg") no-repeat;
+}
+.menuIcon:active {
+	background: url("../images/hamburger_active.svg") no-repeat;
+}
+a:link {
+	color: #0000EE;
+}
+a:visited {
+	color: #551A8B;
+}
+a:hover {
+	color: #00CCFF;
+}
+a:active {
+	color: #FF0000;
+}
+.mainMenu{
+    display: none;
+}
+.mainMenu.hamburger{
+    display: block;
+}
+/*    @media (min-width: 769px){
+      .mainMenu{
+        display: initial;
+      }
+      #toggle-bar{
+        display: none;
+      }
+    }*/
+/*#sticky {
+  position: sticky;
+  position: -webkit-sticky;
+  background: #f83d23;
+  width: 100px;
+  height: 100px;
+  top: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 6px #000;
+  color: #fff;
+}*/
+/*#leftSide {
+	display: block;
+	width:25%;
+	float:left;
+	padding-left:5%;
+}
+
+#leftSide ul {
+	list-style-type:none;
+}
+#leftSide li {
+	padding-bottom:5px;
+	line-height:130%;
+}
+#leftSide a {
+	text-decoration:none;
+}
+.rightSide {
+	display:block;
+	width:70%;
+	float:right;
+}
+.rightSide p {
+	padding-bottom: 10px;
+}
+.rightSide li {
+	line-height:150%;
+}
+.rightSide ul{
+	padding-left:100 px;
+}
+.rightSide a {
+	text-decoration:none;*/
+
+
