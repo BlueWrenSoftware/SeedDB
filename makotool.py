@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import cherrypy
+from mako import exceptions
+from mako.template import Template
 
-__all__ = ['Jinja2Tool']
+__all__ = ['MakoTool']
 
-class Jinja2Tool(cherrypy.Tool):
+class MakoTool(cherrypy.Tool):
     def __init__(self):
         cherrypy.Tool.__init__(self, 'before_finalize',
                                self._render,
@@ -13,7 +15,7 @@ class Jinja2Tool(cherrypy.Tool):
         """
         Applied once your page handler has been called. It
         looks up the template from the various template directories
-        defined in the Jinja2 plugin then renders it with
+        defined in the mako plugin then renders it with
         whatever dictionary the page handler returned.
         """
         if (cherrypy.response.status or 0) > 399:
@@ -24,4 +26,11 @@ class Jinja2Tool(cherrypy.Tool):
         template = cherrypy.engine.publish("lookup-template", template).pop()
 
         if template and isinstance(data, dict):
-            cherrypy.response.body = template.render(**data).encode('utf8')
+            # dump the template using the dictionary
+            if debug:
+                try:
+                    cherrypy.response.body = template.render(**data)
+                except:
+                    cherrypy.response.body = exceptions.html_error_template().render()
+            else:
+                cherrypy.response.body = template.render(**data)

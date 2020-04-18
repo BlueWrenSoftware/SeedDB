@@ -1,7 +1,4 @@
 # -*- coding: utf-8 -*-
-import jinja2
-import jinja2plugin
-import jinja2tool
 import cherrypy
 import os
 
@@ -34,14 +31,14 @@ if __name__ == '__main__':
         }
     }
 
-    jinja_env = jinja2.Environment(
-        loader=jinja2.FileSystemLoader('./templates'),
-        autoescape=jinja2.select_autoescape(
-            enabled_extensions=('html', 'xml'),
-            default_for_string=True,
-        )
-    )    
-    jinja2plugin.Jinja2TemplatePlugin(cherrypy.engine, jinja_env).subscribe()
-    cherrypy.tools.template = jinja2tool.Jinja2Tool()
+    
+    # Register the Mako plugin
+    from makoplugin import MakoTemplatePlugin
+    MakoTemplatePlugin(cherrypy.engine, base_dir=os.path.join(os.getcwd(), 'templates')).subscribe()
+
+    # Register the Mako tool
+    from makotool import MakoTool
+    cherrypy.tools.template = MakoTool()
+
     cherrypy.quickstart(SeedDb(), '', conf)
 
