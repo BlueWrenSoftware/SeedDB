@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en-au" dir="ltr">
+
+<head>
+	<title>Seed DB</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="description" content="Seed Data Base">
+	<meta name="author" content="Dirk Koudstaal">
+	<meta name="keywords" content="Relational DB, Seed DB, Farm Records">
+	<link rel="stylesheet" href="/static/styles/styles.css">
+</head>
+
+<body>
+<div id="wrapper">
+
+<!-- Menu settings -->
+		<section id="openMenu">
+			<img class="right" src="/static/images/hamburger_icon.svg" >
+			<div class="mainMenu">
+				<img class="right" src="/static/images/hamburger_active.svg" >
+				<nav class="mainDoc">
+					<ul>
+						<li><a href="/">Home Page</a></li>
+						<li><a href="/seedlist">Seed Collection</a></li>
+						<li><a href="#">Contents</a></li>
+						<li><a href="#">Contents</a></li>
+						<li><a href="#">Contents</a></li>
+					</ul>
+				</nav>
+			</div>
+		</section>
+<!-- End menu settings -->
+
+	<section id="pageHeader">
+		<img class="icon" src="/static/images/bettong-june.svg" height="42">
+		<header id="pageHeader">
+			<h1>
+				Seed Data Base
+			</h1>
+		</header>
+	</section>
+
+  {% block content %}{% endblock %}
+
+	<script src="/static/js/menu.js"></script>
+	<script src="/static/js/to_top.js"></script>
+	
+</div>
