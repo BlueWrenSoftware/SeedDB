@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import cherrypy
+import sqlite3
 import os
 
 class SeedDb(object):
@@ -9,7 +10,12 @@ class SeedDb(object):
 
     @cherrypy.expose
     def seedlist(self):
-        return {}
+        with sqlite3.connect('./db/seed.db') as conn:
+            curs = conn.cursor()
+            curs.execute('SELECT * FROM ViewSeedList;')
+            ret = {'data': curs.fetchall()}
+            print(ret)
+            return ret
 
 if __name__ == '__main__':
     conf = {
@@ -18,8 +24,7 @@ if __name__ == '__main__':
             'tools.staticdir.root': os.path.abspath(os.getcwd()),
             'tools.template.on': True,
             'tools.template.template': 'index.html',
-            'tools.encode.on': True,
-            'tools.encode.encoding': 'utf-8'
+            'tools.encode.on': False
         },
         '/seedlist': {
             'tools.template.template': 'seedlist.html'
@@ -39,6 +44,5 @@ if __name__ == '__main__':
     # Register the Mako tool
     from makotool import MakoTool
     cherrypy.tools.template = MakoTool()
-
     cherrypy.quickstart(SeedDb(), '', conf)
 
