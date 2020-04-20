@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 f55be10442fe6793c43e720c37fef1dde52d6f00 Dirk Koudstaal <dkgithub@fastmail.com> 1587005300 +1000	branch: Created from master
-f55be10442fe6793c43e720c37fef1dde52d6f00 bdf8c2f1982d8e056b24c6e27b984fe1fbe83c88 Dirk Koudstaal <dkgithub@fastmail.com> 1587015012 +1000	commit: Added data base code
-bdf8c2f1982d8e056b24c6e27b984fe1fbe83c88 8ad2e7fcbedff338974f99e1189862a442d82157 Dirk Koudstaal <dkgithub@fastmail.com> 1587021885 +1000	commit: Added db with data for testing
-8ad2e7fcbedff338974f99e1189862a442d82157 0540e727bdc8a81f1abc8591e4f10631a1bf03e4 Dirk Koudstaal <dkgithub@fastmail.com> 1587033942 +1000	commit: Created html page vor ViewSeedList from the SeedDB
-0540e727bdc8a81f1abc8591e4f10631a1bf03e4 70963eff2084582c528c0b98243a6fd73f382284 Dirk Koudstaal <dkgithub@fastmail.com> 1587034531 +1000	commit: Changes to README.md
-70963eff2084582c528c0b98243a6fd73f382284 94bb512443df1faa00ee19d48625b78f438d4a10 Dirk Koudstaal <dkgithub@fastmail.com> 1587034694 +1000	commit: Changes to README.md
-94bb512443df1faa00ee19d48625b78f438d4a10 2e948f0fac8ab5832810a2c9bb21b63ce7bf435c Dirk Koudstaal <dkgithub@fastmail.com> 1587043050 +1000	commit: Changes to styles.css
