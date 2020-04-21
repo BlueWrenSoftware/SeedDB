@@ -322,7 +322,7 @@ table {
     font-size: 95%;
     font-weight: normal;
     border: 1px solid #000000;
-    /*margin: 10px 25px 10px 25px;*/
+    margin-bottom: 20px;
     table-layout: auto;
     width: 100%;
 }

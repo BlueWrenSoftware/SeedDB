@@ -16,11 +16,11 @@
 			</thead>
       % for row in data:
           <tr>
-          % for idx, el in enumerate(row):
-            % if idx == 1 or idx ==3:
-                <td>${el}</td>
-            % else:
+          % for el in row:
+            % if type(el) is int:
                 <td class="textCenter">${el}</td>
+            % else:
+                <td >${el}</td>
             % endif
           % endfor
           </tr>
