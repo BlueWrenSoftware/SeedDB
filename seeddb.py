@@ -14,7 +14,6 @@ class SeedDb(object):
             curs = conn.cursor()
             curs.execute('SELECT * FROM ViewSeedList;')
             ret = {'data': curs.fetchall()}
-            print(ret)
             return ret
 
 if __name__ == '__main__':
