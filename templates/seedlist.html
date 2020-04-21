@@ -1,7 +1,7 @@
 <%inherit file="base.html"/>
 
 	<section>	
-		<header class="centerText">
+		<header>
 			<h2>
 				Seed Collection 
 			</h2>
@@ -16,11 +16,16 @@
 			</thead>
       % for row in data:
           <tr>
-          % for el in row:
-              <td>${el}</td>
+          % for idx, el in enumerate(row):
+            % if idx == 1 or idx ==3:
+                <td>${el}</td>
+            % else:
+                <td class="textCenter">${el}</td>
+            % endif
           % endfor
           </tr>
       % endfor
+
 		</table>	
 	</section>
 

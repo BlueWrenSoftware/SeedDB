@@ -340,6 +340,7 @@ th {
     margin: 0px;
     border: 1px solid #000000;
     background-color: #F6DA74;
+    text-align: center;
 }
 .alterColor tr:nth-child(even) {
 	background: #CCC;
