@@ -9,9 +9,11 @@
 		<h3>
 			Table of Records
 		</h3>
-		<table>
-			<caption>List of Seeds in Store</caption>
-			<tr><th>Seed Type ID</th><th>Seed Type Name</th><th>Seed ID</th><th>Seed Variety Name</th><th>Total Seed Count</th><th>Total Seed Gram</th></tr>
+		<table class="alterColor">
+			<caption>List of Seeds in Storage</caption>
+			<thead>
+				<tr><th>Seed Type ID</th><th>Seed Type Name</th><th>Seed ID</th><th>Seed Variety Name</th><th>Total Seed Count</th><th>Total Seed Gram</th></tr>
+			</thead>
       % for row in data:
           <tr>
           % for el in row:
@@ -19,6 +21,7 @@
           % endfor
           </tr>
       % endfor
-		</table>		
+		</table>
+		<p>Hello</p>		
 	</section>
 
