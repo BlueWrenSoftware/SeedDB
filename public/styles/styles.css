@@ -280,12 +280,12 @@ ol a {
 	bottom: 20px;
 	right: 0;
 	z-index: 99;
-	width: 15px;
-	height: 20px;
+	width: 30px;
+	height: 55px;
 	margin-right: calc(((100vw - 760px) / 2) - (100vw - 100%));
   	border: none;
   	outline: none;
-  	background-image: url(../images/to_top_icon.png);
+  	background-image: url(../images/to_top_word_icon.png);
   	background-repeat: no-repeat;
   	background-position: center center;
   	/*background-color:  #d3d3d3;*/
@@ -294,7 +294,7 @@ ol a {
   	border-radius: 4px;
 }
 #toTop:hover {
-	background-image: url(../images/to_top_red_icon.png);
+	background-image: url(../images/to_top_word_red_icon.png);
   	background-repeat: no-repeat;
   	background-position: center center;
 }
@@ -400,4 +400,15 @@ col.col33 {
 }
 .colorYellow {
     background-color: #FFFF00;
+}
+
+#searchInput {
+  background-image: url('../images/search_icon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
 }

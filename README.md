@@ -27,3 +27,9 @@ Created web page in pages folder for the data of:
 Page Name:
 
 - seedlist.html
+
+### Instructions 24/4/21
+Create new seed.db using:
+ 
+- /db/bluewrenseed.db.v4.3.sql
+- /db/CreateDataV4.2.sql
