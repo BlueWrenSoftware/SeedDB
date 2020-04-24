@@ -1,0 +1,14 @@
+<%inherit file="base.html"/>
+  
+  <input list="seedTypes" value="${seedtype}" />
+  
+  <datalist id="seedTypes">
+    % for each in seedtypes:
+      <option value="${each}" />
+    % endfor
+  </datalist>
+  
+	<script>
+
+</script>
+

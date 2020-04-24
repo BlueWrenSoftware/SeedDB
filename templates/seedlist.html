@@ -24,7 +24,7 @@
                 <td >${el}</td>
             % endif
           % endfor
-          <td><img src="/static/images/pencil.png"></td>
+          <td><a href="/seededit?seedtype=${row[0]|u}&variety=${row[1]|u}&packets=${row[2]|u}"><img src="/static/images/pencil.png"></a></td>
           </tr>
       % endfor
 

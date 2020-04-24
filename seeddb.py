@@ -16,6 +16,19 @@ class SeedDb(object):
             ret = {'data': curs.fetchall()}
             return ret
 
+    @cherrypy.expose
+    def seededit(self, seedtype, variety, packets ):
+        with sqlite3.connect('./db/seed.db') as conn:
+            curs = conn.cursor()
+            curs.execute('SELECT seed_catagory FROM SeedTypes;')
+            seedtypes = [st[0] for st in curs.fetchall()]
+            print(seedtype)
+            ret = {'variety': variety,
+                   'seedtype': seedtype,
+                   'packets': packets,
+                   'seedtypes': seedtypes}
+            return ret
+
 if __name__ == '__main__':
     conf = {
         '/': {
@@ -27,6 +40,9 @@ if __name__ == '__main__':
         },
         '/seedlist': {
             'tools.template.template': 'seedlist.html'
+        },
+        '/seededit': {
+            'tools.template.template': 'seededit.html'
         },
 
         '/static': {
