@@ -2,6 +2,7 @@
 import cherrypy
 import sqlite3
 import os
+import urllib.parse
 
 class SeedDb(object):
     @cherrypy.expose
@@ -12,22 +13,25 @@ class SeedDb(object):
     def seedlist(self):
         with sqlite3.connect('./db/seed.db') as conn:
             curs = conn.cursor()
-            curs.execute('SELECT * FROM ViewSeedList2;')
-            ret = {'data': curs.fetchall()}
+            curs.execute('SELECT * FROM ViewSeedList;')            
+            data = curs.fetchall()
+            print(data)
+            curs.execute('SELECT id_seed_type, seed_catagory FROM SeedTypes;')
+            seedtypes = curs.fetchall()
+            curs.execute('SELECT id_seed, seed_variety_name FROM Seeds;')
+            varieties = curs.fetchall()
+            ret = {                   
+                   'seedtypes': seedtypes,
+                   'varieties': varieties,
+                   'data': data}
             return ret
-
+    
     @cherrypy.expose
-    def seededit(self, seedtype, variety, packets ):
-        with sqlite3.connect('./db/seed.db') as conn:
-            curs = conn.cursor()
-            curs.execute('SELECT seed_catagory FROM SeedTypes;')
-            seedtypes = [st[0] for st in curs.fetchall()]
-            print(seedtype)
-            ret = {'variety': variety,
-                   'seedtype': seedtype,
-                   'packets': packets,
-                   'seedtypes': seedtypes}
-            return ret
+    def seedsubmit(self, seedtype, variety, packets):
+        print(seedtype)
+        print(variety)
+        print(packets)
+
 
 if __name__ == '__main__':
     conf = {

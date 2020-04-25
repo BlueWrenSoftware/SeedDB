@@ -16,21 +16,64 @@
 				<tr><th>Seed Type Name</th><th>Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
 			</thead>
       % for row in data:
+      <%
+        rowstr = ""
+        %>
           <tr>
-          % for el in row:
+         % for el in row:
+         <%
+           rowstr += str(el) + "|"
+           %>
             % if isinstance(el, int):
                 <td class="textCenter">${el}</td>
             % else:
                 <td >${el}</td>
             % endif
           % endfor
-          <td><a href="/seededit?seedtype=${row[0]|u}&variety=${row[1]|u}&packets=${row[2]|u}"><img src="/static/images/pencil.png"></a></td>
+          <td><button class="edit-btn" value=${rowstr}><img src="/static/images/pencil.png"></button></td>
           </tr>
       % endfor
 
-		</table>	
+		</table>
+
+    <dialog id="seed-dialog">
+      <form method="post" action="/seedsubmit" target="_self">
+        <select id="seed-type-select" name="seedtype">
+          % for each in seedtypes:
+          <option value="${each[0]}">${each[1]}</option>
+          % endfor
+        </select>
+        <select list="variety" name="variety" id="variety-select" >
+          % for each in varieties:
+          <option value="${each[0]}">${each[1]}</option>
+          % endfor
+        </select>
+        <input type="number" name="packets" id="packet-select"/>
+        <input type="submit" value="Submit" class="submit-btn" />
+      </form>
+    </dialog>
 	</section>
 	<script>
-
-</script>
+    var editBtns = document.getElementsByClassName('edit-btn');
+    var editDialog = document.getElementById('seed-dialog');
+    var submitBtns = document.getElementsByClassName('submit-btn');
+    var seedTypeSelect = document.getElementById('seed-type-select');
+    var varietySelect = document.getElementById('variety-select');
+    var packetSelect = document.getElementById('packet-select');
+    // "Update details" button opens the <dialog> modally
+    for (let editBtn of editBtns) {
+        editBtn.addEventListener('click', function onOpen() {
+            if (typeof editDialog.showModal === "function") {
+                var values = editBtn.value.split("|");
+                seedTypeSelect.value = values[0];
+                varietySelect.value = values[2];
+                packetSelect.value = Number(values[4]);
+                editDialog.showModal();                
+            } else {
+                alert("The <dialog> API is not supported by this browser");
+            }        
+        });
+    };
+    
+ </script>
 
