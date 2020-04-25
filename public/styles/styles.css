@@ -343,7 +343,7 @@ th {
     text-align: center;
 }
 .alterColor tr:nth-child(even) {
-	background: #CCC;
+	background: #E8E8E8;
 }
 .alterColor tr:nth-child(odd) {
 	background: #FFF;
