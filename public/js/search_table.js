@@ -1,4 +1,12 @@
-function myFunction(col) {
+/*function colNumber() {
+  var number;
+  number = document.getElementById("test").cellIndex;
+  return number;
+}
+
+col = colNumber()*/
+
+function searchFunction(col) {
   var input, filter, table, tr, td, i, txtValue, col;
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
