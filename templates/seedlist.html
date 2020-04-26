@@ -30,7 +30,7 @@
                 <td >${el}</td>
             % endif
           % endfor
-          <td><button class="edit-btn" value=${rowstr}><img src="/static/images/pencil.png"></button></td>
+          <td onclick="toggle()"><button class="edit-btn" value=${rowstr}><img src="/static/images/pencil.png"></button></td>
           </tr>
       % endfor
 
@@ -43,13 +43,18 @@
           <option value="${each[0]}">${each[1]}</option>
           % endfor
         </select>
+        <br>
         <select list="variety" name="variety" id="variety-select" >
           % for each in varieties:
           <option value="${each[0]}">${each[1]}</option>
           % endfor
         </select>
+        <br>
         <input type="number" name="packets" id="packet-select"/>
+        <br>
+        <div  class="textCenter">
         <input type="submit" value="Submit" class="submit-btn" />
+      </div>
       </form>
     </dialog>
 	</section>

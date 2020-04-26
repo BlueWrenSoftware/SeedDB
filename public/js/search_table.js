@@ -24,3 +24,16 @@ function searchFunction(col) {
     }       
   }
 }
+
+/*function dialogPosition() {
+  tr = document.getElementsByTagName("tr");
+  tr.style.display = "none";
+}*/
+   function toggle(){
+        var off=document.getElementById('searchTable');
+        if (off.style.display == "none") {
+            off.style.display = "block";
+        } else {
+            off.style.display = "none";
+        }        
+    }
