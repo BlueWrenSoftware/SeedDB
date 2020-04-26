@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en-au" dir="ltr">
+  <body>
+    <form method="post" action="/seedsubmit" target="_self">
+      % for row in data:
+      <select id="seed-type-select" name="seedtype">
+        % for each in seedtypes:
+        <option value="${each[0]}">${each[1]}</option>
+        % endfor
+      </select>
+      <br>
+      <select list="variety" name="variety" id="variety-select" >
+        % for each in varieties:
+        <option value="${each[0]}">${each[1]}</option>
+        % endfor
+      </select>
+      <br>
+      <input type="number" name="packets" id="packet-select" value="${row[5]}"/>
+      <br>
+      % endfor
+      <div  class="textCenter">
+        <input type="submit" value="Submit" id="submit-btn" onclick="toggle()">
+        <input type=button onClick="location.href='seedlist'" value='Cancel'>
+      </div>
+    </form>
+  </body>
+</html>

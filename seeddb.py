@@ -14,18 +14,35 @@ class SeedDb(object):
         with sqlite3.connect('./db/seed.db') as conn:
             curs = conn.cursor()
             curs.execute('SELECT * FROM ViewSeedList;')            
-            data = curs.fetchall()
-            print(data)
+            data = curs.fetchall()     
+            return {'data': data}
+    
+    @cherrypy.expose
+    def seededit(self, variety_id):
+        with sqlite3.connect('./db/seed.db') as conn:
+            curs = conn.cursor()
             curs.execute('SELECT id_seed_type, seed_catagory FROM SeedTypes;')
             seedtypes = curs.fetchall()
             curs.execute('SELECT id_seed, seed_variety_name FROM Seeds;')
             varieties = curs.fetchall()
-            ret = {                   
-                   'seedtypes': seedtypes,
-                   'varieties': varieties,
-                   'data': data}
-            return ret
-    
+            curs.execute("""SELECT 	
+                          id_seed_packet,
+	                  id_seed,
+                          packet_code,
+                          date_purchased,
+	                  date_use_by,
+	                  seed_count,
+	                  seed_gram,
+	                  packet_treatment,
+	                  storage_location
+                        FROM SeedPackets                           
+                        WHERE id_seed=?""", (variety_id,))
+            data = curs.fetchall()
+            return {
+                'seedtypes': seedtypes,
+                'varieties': varieties,
+                'data': data
+            }
     @cherrypy.expose
     def seedsubmit(self, seedtype, variety, packets):
         print(seedtype)

@@ -1,5 +1,4 @@
 <%inherit file="base.html"/>
-
 	<section>	
 		<header>
 			<h2>
@@ -16,70 +15,18 @@
 				<tr><th>Seed Type ID</th><th>Seed Type Name</th><th>Seed ID</th><th id="test">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
 			</thead>
       % for row in data:
-      <%
-        rowstr = ""
-        %>
           <tr>
          % for el in row:
-         <%
-           rowstr += str(el) + "|"
-           %>
             % if isinstance(el, int):
                 <td class="textCenter">${el}</td>
             % else:
                 <td >${el}</td>
             % endif
           % endfor
-          <td onclick="toggle()"><button class="edit-btn" value=${rowstr}><img src="/static/images/pencil.png"></button></td>
+          <td><a href="/seededit?variety_id=${row[2]}" class="edit-btn"><img src="/static/images/pencil.png" target="_blank" rel="noreferrer noopener"></a></td>
           </tr>
       % endfor
-
 		</table>
-
-    <dialog id="seed-dialog">
-      <form method="post" action="/seedsubmit" target="_self">
-        <select id="seed-type-select" name="seedtype">
-          % for each in seedtypes:
-          <option value="${each[0]}">${each[1]}</option>
-          % endfor
-        </select>
-        <br>
-        <select list="variety" name="variety" id="variety-select" >
-          % for each in varieties:
-          <option value="${each[0]}">${each[1]}</option>
-          % endfor
-        </select>
-        <br>
-        <input type="number" name="packets" id="packet-select">
-        <br>
-        <div  class="textCenter">
-        <input type="submit" value="Submit" id="submit-btn" onclick="toggle()">
-        <input type=button onClick="location.href='seedlist'" value='Cancel'>
-      </div>
-      </form>
-    </dialog>
 	</section>
-	<script>
-    var editBtns = document.getElementsByClassName('edit-btn');
-    var editDialog = document.getElementById('seed-dialog');
-    var submitBtns = document.getElementsByClassName('submit-btn');
-    var seedTypeSelect = document.getElementById('seed-type-select');
-    var varietySelect = document.getElementById('variety-select');
-    var packetSelect = document.getElementById('packet-select');
-    // "Update details" button opens the <dialog> modally
-    for (let editBtn of editBtns) {
-        editBtn.addEventListener('click', function onOpen() {
-            if (typeof editDialog.showModal === "function") {
-                var values = editBtn.value.split("|");
-                seedTypeSelect.value = values[0];
-                varietySelect.value = values[2];
-                packetSelect.value = Number(values[4]);
-                editDialog.showModal();                
-            } else {
-                alert("The <dialog> API is not supported by this browser");
-            }        
-        });
-    };
-    
+	<script>    
  </script>
-
