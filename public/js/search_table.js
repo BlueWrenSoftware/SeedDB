@@ -32,7 +32,7 @@ function searchFunction(col) {
    function toggle(){
         var off=document.getElementById('searchTable');
         if (off.style.display == "none") {
-            off.style.display = "block";
+            off.style.display = "";
         } else {
             off.style.display = "none";
         }        

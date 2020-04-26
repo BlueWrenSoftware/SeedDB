@@ -50,10 +50,11 @@
           % endfor
         </select>
         <br>
-        <input type="number" name="packets" id="packet-select"/>
+        <input type="number" name="packets" id="packet-select">
         <br>
         <div  class="textCenter">
-        <input type="submit" value="Submit" class="submit-btn" />
+        <input type="submit" value="Submit" id="submit-btn" onclick="toggle()">
+        <input type=button onClick="location.href='seedlist'" value='Cancel'>
       </div>
       </form>
     </dialog>
