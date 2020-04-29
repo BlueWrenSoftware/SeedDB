@@ -9,9 +9,13 @@
         % endfor
       </select>
       <br>
-      <select list="variety" name="variety" id="variety-select" >
+      <select  name="variety">
         % for each in varieties:
+        % if row[1] == each[0]:
+        <option value="${each[0]}" selected >${each[1]}</option>
+        % else:
         <option value="${each[0]}">${each[1]}</option>
+        % endif
         % endfor
       </select>
       <br>
