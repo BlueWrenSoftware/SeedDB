@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS "Users" (
 DROP TABLE IF EXISTS "SeedTypes";
 CREATE TABLE IF NOT EXISTS "SeedTypes" (
 	"id_seed_type"	INTEGER PRIMARY KEY AUTOINCREMENT,
-	"seed_catagory"	TEXT,
+	"seed_category"	TEXT,
 	"seed_description"	TEXT,
 	"id_user"	TEXT NOT NULL,
 	FOREIGN KEY("id_user") REFERENCES "Users"("id_user") ON DELETE SET NULL
@@ -125,7 +125,7 @@ CREATE TABLE IF NOT EXISTS "Companies" (
 DROP VIEW IF EXISTS "ViewSeedList2";
 CREATE VIEW ViewSeedList2 as 
 select
-	SeedTypes.seed_catagory
+	SeedTypes.seed_category
 	,Seeds.seed_variety_name
 	,count(SeedPackets.id_seed_packet) as seedPacketCount
 	,ifnull(sum(SeedPackets.seed_count),0) as totalSeedCount
@@ -137,14 +137,14 @@ left outer join SeedPackets
 using (id_seed)
 group by
 	id_seed_type,
-	seed_catagory,
+	seed_category,
 	id_seed,
 	seed_variety_name;
 DROP VIEW IF EXISTS "ViewSeedList";
 CREATE VIEW ViewSeedList as 
 select
 	SeedTypes.id_seed_type
-	,SeedTypes.seed_catagory
+	,SeedTypes.seed_category
 	,Seeds.id_seed
 	,Seeds.seed_variety_name
 	,count(SeedPackets.id_seed_packet) as seedPacketCount
@@ -157,7 +157,7 @@ left outer join SeedPackets
 using (id_seed)
 group by
 	id_seed_type,
-	seed_catagory,
+	seed_category,
 	id_seed,
 	seed_variety_name;
 COMMIT;

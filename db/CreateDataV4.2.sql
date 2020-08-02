@@ -2,7 +2,7 @@ INSERT INTO Users(id_user,first_name,last_name) VALUES
 ('adm','Admin','Administrator'),
 ('drk','Dirk','Koudstaal')
 ;
-INSERT INTO SeedTypes(id_seed_type,seed_catagory,seed_description,id_user) VALUES 
+INSERT INTO SeedTypes(id_seed_type,seed_category,seed_description,id_user) VALUES 
 (1,'flower','update','adm'),
 (2,'vegetable','update','adm'),
 (3,'fruit','update','adm'),

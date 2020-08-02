@@ -21,7 +21,7 @@ class SeedDb(object):
     def seededit(self, variety_id):
         with sqlite3.connect('./db/seed.db') as conn:
             curs = conn.cursor()
-            curs.execute('SELECT id_seed_type, seed_catagory FROM SeedTypes;')
+            curs.execute('SELECT id_seed_type, seed_category FROM SeedTypes;')
             seedtypes = curs.fetchall()
             curs.execute('SELECT id_seed, seed_variety_name FROM Seeds;')
             varieties = curs.fetchall()
