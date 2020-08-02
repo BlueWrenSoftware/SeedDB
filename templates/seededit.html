@@ -2,25 +2,36 @@
 <html lang="en-au" dir="ltr">
   <body>
     <form method="post" action="/seedsubmit" target="_self">
+      <table class="alterColor" id="searchTable">
+	<caption>List of Seeds in Storage</caption>
+	<thead>
+	  <tr><th>Seed Type</th><th>Seed Variety</th><th>Seed Count</th>
+	</thead>
       % for row in data:
-      <select id="seed-type-select" name="seedtype">
-        % for each in seedtypes:
-        <option value="${each[0]}">${each[1]}</option>
-        % endfor
-      </select>
-      <br>
-      <select  name="variety">
-        % for each in varieties:
-        % if row[1] == each[0]:
-        <option value="${each[0]}" selected >${each[1]}</option>
-        % else:
-        <option value="${each[0]}">${each[1]}</option>
-        % endif
-        % endfor
-      </select>
-      <br>
-      <input type="number" name="packets" id="packet-select" value="${row[5]}"/>
-      <br>
+        <tr>
+          <input type="hidden" name="packet_id" id="packet-id" value="${row[0]}"/>
+          <td>
+            <select id="seed-type-select" name="seed_type_id">
+              % for each in seedtypes:
+              <option value="${each[0]}">${each[1]}</option>
+              % endfor
+            </select>
+          </td>
+          <td>
+            <select  name="variety_id">
+              % for each in varieties:
+              % if row[1] == each[0]:
+              <option value="${each[0]}" selected >${each[1]}</option>
+              % else:
+              <option value="${each[0]}">${each[1]}</option>
+              % endif
+              % endfor
+            </select>
+          </td>
+          <td>
+            <input type="number" name="seed_count" id="packet-select" value="${row[5]}"/>
+          </td>
+        </tr>
       % endfor
       <div  class="textCenter">
         <input type="submit" value="Submit" id="submit-btn" onclick="toggle()">
