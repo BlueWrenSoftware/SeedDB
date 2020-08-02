@@ -18,7 +18,7 @@ class SeedDb(object):
         return {'data': data}
     
     @cherrypy.expose
-    def seededit(self, variety_id):
+    def editpackets(self, variety_id):
         with sqlite3.connect('./db/seed.db') as conn:
             curs = conn.cursor()
             curs.execute('SELECT id_seed_type, seed_category FROM SeedTypes;')
@@ -46,7 +46,10 @@ class SeedDb(object):
         
     @cherrypy.expose
     def seedsubmit(self, packet_id, seed_type_id, variety_id, seed_count):
+        print(seed_count)
         d = list(zip(variety_id, seed_count, packet_id))
+        if len(d) == 1:
+            d = [(int(variety_id), int(seed_count), int(packet_id))]            
         print(d)
         with sqlite3.connect('./db/seed.db') as conn:            
             for x in d:
@@ -67,8 +70,8 @@ if __name__ == '__main__':
         '/seedlist': {
             'tools.template.template': 'seedlist.html'
         },
-        '/seededit': {
-            'tools.template.template': 'packetsedit.html'
+        '/editpackets': {
+            'tools.template.template': 'editpackets.html'
         },
 
         '/static': {
