@@ -68,7 +68,7 @@ if __name__ == '__main__':
             'tools.template.template': 'seedlist.html'
         },
         '/seededit': {
-            'tools.template.template': 'seededit.html'
+            'tools.template.template': 'packetsedit.html'
         },
 
         '/static': {
