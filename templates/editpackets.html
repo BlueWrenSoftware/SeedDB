@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-au" dir="ltr">
   <body>
-    <form method="post" action="/seedsubmit" target="_self">
+    <form method="post" action="/seedsubmit">
       <table class="alterColor" id="searchTable">
 	<caption>List of Seeds in Storage</caption>
 	<thead>
@@ -34,8 +34,8 @@
         </tr>
       % endfor
       <div  class="textCenter">
-        <input type="submit" value="Submit" id="submit-btn" onclick="toggle()">
-        <input type=button onClick="location.href='seedlist'" value='Cancel'>
+        <input type="submit" value="Save" id="submit-btn" onClick="toggle()">
+        <input type="button" onClick="location.href='seedlist'" value='Cancel'>
       </div>
     </form>
   </body>

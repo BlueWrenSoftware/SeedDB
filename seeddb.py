@@ -54,6 +54,7 @@ class SeedDb(object):
                 conn.execute("""UPDATE SeedPackets
                                 SET id_seed=?, seed_count=?
                                 WHERE id_seed_packet=?""",x)
+        raise cherrypy.HTTPRedirect('seedlist')
 
 
 if __name__ == '__main__':
@@ -71,7 +72,6 @@ if __name__ == '__main__':
         '/editpackets': {
             'tools.template.template': 'editpackets.html'
         },
-
         '/static': {
             'tools.staticdir.on': True,
             'tools.staticdir.dir': './public'
