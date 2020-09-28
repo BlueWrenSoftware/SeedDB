@@ -24,7 +24,7 @@
 	    margin-right: 0;
 	    overflow: auto;
 	 }
-	 html:focus: {
+	 html:focus {
 	 	outline: none;
 	 }
 	/* DejaVu font settings */
@@ -53,7 +53,6 @@
 		src: url("../fonts/DejaVuSerif-Italic.ttf") format("truetype");
 		font-style: normal;
 	}
-	@charset "UTF-8";
 
 	body {
 		font-family: VuSerif, serif; 
@@ -277,7 +276,7 @@ ol a {
 #toTop {
 	display: none;
 	position: fixed;
-	bottom: 20px;
+	bottom: 5px;
 	right: -30px;
 	z-index: 99;
 	width: 30px;

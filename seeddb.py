@@ -13,7 +13,7 @@ class SeedDb(object):
     def seedlist(self):
         with sqlite3.connect('./db/seed.db') as conn:
             curs = conn.cursor()
-            curs.execute('SELECT * FROM ViewSeedList;')            
+            curs.execute('SELECT * FROM ViewSeedList2;')            
             data = curs.fetchall()     
         return {'data': data}
     
