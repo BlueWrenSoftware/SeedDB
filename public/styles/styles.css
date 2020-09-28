@@ -278,14 +278,14 @@ ol a {
 	display: none;
 	position: fixed;
 	bottom: 20px;
-	right: 0;
+	right: -30px;
 	z-index: 99;
 	width: 30px;
 	height: 55px;
 	margin-right: calc(((100vw - 760px) / 2) - (100vw - 100%));
   	border: none;
   	outline: none;
-  	background-image: url(../images/to_top_word_icon.png);
+  	background-image: url(../images/to_top_word_icon_fat.png);
   	background-repeat: no-repeat;
   	background-position: center center;
   	/*background-color:  #d3d3d3;*/
@@ -294,7 +294,7 @@ ol a {
   	border-radius: 4px;
 }
 #toTop:hover {
-	background-image: url(../images/to_top_word_red_icon.png);
+	background-image: url(../images/to_top_word_red_icon_fat.png);
   	background-repeat: no-repeat;
   	background-position: center center;
 }
