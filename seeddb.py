@@ -11,11 +11,14 @@ class SeedDb(object):
 
     @cherrypy.expose
     def seedlist(self):
+        ret = {'data': []}
         with sqlite3.connect('./db/seed.db') as conn:
+            conn.row_factory = sqlite3.Row
             curs = conn.cursor()
-            curs.execute('SELECT * FROM ViewSeedList2;')            
-            data = curs.fetchall()     
-        return {'data': data}
+            curs.execute('SELECT * FROM ViewSeedList2;')
+            res = curs.fetchall()
+            ret['data'] = res
+        return ret
     
     @cherrypy.expose
     def editpackets(self, variety_id):

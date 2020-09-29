@@ -130,6 +130,7 @@ select
 	,count(SeedPackets.id_seed_packet) as seedPacketCount
 	,ifnull(sum(SeedPackets.seed_count),0) as totalSeedCount
 	,ifnull(sum(SeedPackets.seed_gram),0) as totalSeedGram
+        ,Seeds.id_seed
 from SeedTypes 
 join Seeds 
 using (id_seed_type)

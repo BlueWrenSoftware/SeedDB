@@ -12,20 +12,17 @@
 		<table class="alterColor" id="searchTable">
 			<caption>List of Seeds in Storage</caption>
 			<thead>
-				<tr><th>Seed Type Name</th><th id="test">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
-				<!--<tr><th>Seed Type ID</th><th>Seed Type Name</th><th>Seed ID</th><th id="test">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>-->
-			</thead>
+			  <tr><th>Seed Type Name</th><th id="test">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
+                        </thead>
       % for row in data:
-          <tr>
-         % for el in row:
-            % if isinstance(el, int):
-                <td class="textCenter">${el}</td>
-            % else:
-                <td >${el}</td>
-            % endif
-          % endfor
-          <td><a href="/editpackets?variety_id=${row[2]}" class="edit-btn"><img src="/static/images/pencil.png" target="_blank" rel="noreferrer noopener"></a></td>
-          </tr>
+                        <tr>
+                          <td>${row['seed_category']}</td>                          
+                          <td>${row['seed_variety_name']}</td>                          
+                          <td class="textCenter">${row['seedPacketCount']}</td>                          
+                          <td class="textCenter">${row['totalSeedCount']}</td>                         
+                          <td class="textCenter">${row['totalSeedGram']}</td>
+                          <td><a href="/editpackets?variety_id=${row['id_seed']}" class="edit-btn"><img src="/static/images/pencil.png" target="_blank" rel="noreferrer noopener"></a></td>
+                        </tr>
       % endfor
 		</table>
 	</section>
