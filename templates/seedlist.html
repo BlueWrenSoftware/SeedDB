@@ -5,14 +5,14 @@
 				Seed Collection 
 			</h2>
 		</header>
-		<input type="text" id="searchInput" onkeyup="searchFunction(3)" placeholder="Search Seed Variety.." title="Type in a name">
+		<input type="text" id="searchInput" onkeyup="searchFunction('search-column')" placeholder="Search Seed Variety.." title="Type in a name">
 		<h3>
 			Table of Records
 		</h3>
 		<table class="alterColor" id="searchTable">
 			<caption>List of Seeds in Storage</caption>
 			<thead>
-			  <tr><th>Seed Type Name</th><th id="test">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
+			  <tr><th>Seed Type Name</th><th id="search-column">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
                         </thead>
       % for row in data:
                         <tr>
