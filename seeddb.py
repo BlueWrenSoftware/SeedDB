@@ -53,10 +53,16 @@ class SeedDb(object):
         if len(d) == 1:
             d = [(int(variety_id), int(seed_count), int(packet_id))]            
         with sqlite3.connect('./db/seed.db') as conn:            
-            for x in d:
-                conn.execute("""UPDATE SeedPackets
-                                SET id_seed=?, seed_count=?
-                                WHERE id_seed_packet=?""",x)
+            for x in d:                
+                if x[2]:  # existing packet we are updating
+                    conn.execute("""UPDATE SeedPackets
+                                    SET id_seed=?, seed_count=?
+                                    WHERE id_seed_packet=?""", x)
+                elif int(x[1]):  # new packed we are adding
+                    conn.execute(
+                        """INSERT INTO SeedPackets (id_seed, seed_count)
+                             VALUES(?,?)""", x[0:2])                
+                    
         raise cherrypy.HTTPRedirect('seedlist')
 
 
