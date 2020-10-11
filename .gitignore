@@ -3,6 +3,5 @@
 *.db
 /winvenv/
 /.venv/
-/static/styles/styles_rename.css
 /db/seed.sqlite
 /my_project/
