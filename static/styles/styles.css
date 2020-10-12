@@ -1,4 +1,3 @@
-
 /* Start of default settings */
 header, section, article, figure, figcaption, nav, footer, video, address, dialog {
     display: block;
@@ -27,6 +26,18 @@ html {
 html:focus {
     outline: none;
 }
+body {
+    font-family: VuSerif, serif; 
+    font-size: 1em;
+    font-weight: normal;
+}
+#body-wrapper {
+    width: 760px;
+    min-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+
 /* DejaVu font settings */
 @font-face {
     font-family: VuSerif;
@@ -53,53 +64,14 @@ html:focus {
     src: url("../fonts/DejaVuSerif-Italic.ttf") format("truetype");
     font-style: normal;
 }
+/* End font settings */
 
-body {
-    font-family: VuSerif, serif; 
-    font-size: 1em;
-    font-weight: normal;
-}
-#wrapper {
-    width: 760px;
-    min-width: 400px;
-    margin: 0 auto;
-    position: relative;
-}
-article {
-    padding-left: 0px;
-    padding-right: 0px;
-}
-/*--------------------*/
+/* End default settings */
 
-/* Default element settings*/
-/* Article settings*/
-article li {
-    padding-left: 0.6em;
-    padding-bottom: 0.35em;
-    line-height: 1.3em;
-}
-article ul, ol {
-    padding-left: 2em;
-}
-article p {
-    padding-bottom: 0.7em;
-    line-height: 1.3em;
-}
-/* Media settings*/
-figcaption {
-    font-size: 0.9em;
-    font-family: VuItalic, italic;
-}
-figure {
-    text-align: center;
-    padding: 0.6em 0em;
-    
-}
-figure img {
-    padding: 0.15em;
-    border: 0.025em solid #CCCCCC;
-}
-/* Headers settings*/
+
+
+
+
 #page-header {
     display: inline-block;
     padding-top: 0.625em;
@@ -110,56 +82,88 @@ figure img {
     text-align: left;
     padding-left: 0.625em;
 }
-#page-header__icon {
+#page-header__logo {
     display: inline-block;
     top: 0.625em;
     vertical-align: middle;	
 }
-/*span.tl21org {
-    font-family: VuSans, sans-serif
-}*/
-h2 {
+.page-content__h2 {
     display: inline-block;
-    /*text-align: center;*/
     font-family: VuSans, sans-serif;
-    font-size: 1.1875em;
+    font-size: 1.245em;
     font-weight: normal;
     padding-bottom: 1em;
-    
-}
-header>h2 {
     padding-top: 0.8em;
-    width: 760px;
-    min-width: 400px;	
+   /* width: 760px;*/
+    min-width: 400px;
 }
-h3 {
+.page-content__h3 {
     font-family: VuSans, sans-serif;
     font-size: 1.125em;
     font-weight: normal;
     padding-top: 0.6em;
     padding-bottom: 0.3em;
 }
-h4 {
+.page-content__h4 { /*not used*/
     font-family: VuSans, sans-serif;
     font-size: 1.0025em;
     font-weight: normal;
     padding-top: 0.6em;
     padding-bottom: 0.3em;	
 }
-/* Code settins*/
-code, pre {
-    background-color: #d3d3d3;
-}
-code {
-    font-family: VuMono, monospace;
-    font-size: 0.9em;
-}
-pre {
+.page-menu__hamburger {
     display: block;
-    overflow-x: auto; 
-    padding: 0.3em;
+    position: absolute;
+    cursor: pointer;
+    top: 0.625em;
+    right: 0;
+    height: 22px;
+    z-index: 70;
 }
-/* Footer Settings */
+.page-menu__hamburger--show { 
+    display: block;
+    position: absolute;
+    right: 0;
+    top: calc(1.25em + 0.625em);
+    padding: 0.5em;
+    width: calc(760px * 3 / 4);
+    background-color: #f8f8f8;
+    border: 0.025em solid #CCCCCC;
+    z-index: 90;
+    font-family: VuSans, sans-serif;
+}
+.page-content__img--left {
+    dispaly: block;
+    margin-left:1.25em ;
+    padding: 0.15em;
+    border: 0.025em solid #CCCCCC;
+}
+.page-content__menu {
+    display: block;
+    font-size: 100%;
+    font-family: VuSans, sans-serif;
+    padding-left: 1.5em; 
+}
+.page-content__table {
+        caption-side: top;
+    border-collapse: collapse;
+    font-family: VuSans, sans-serif;
+    font-size: 95%;
+    font-weight: normal;
+    border: 1px solid #000000;
+    margin-bottom: 20px;
+    table-layout: auto;
+    width: 100%;
+}    
+.page-content__table--color tr:nth-child(even) {
+    background: #E8E8E8;
+}
+.page-content__table--color tr:nth-child(odd) {
+    background: #FFF;
+}
+.page-content__table-col--text-center {
+    text-align:center;
+}
 #page-footer {
     clear: both;
     border-top: 0.025em solid #CCCCCC;
@@ -173,13 +177,10 @@ pre {
 #page-footer p {
     font-size: 0.85em;
 }
-/*--------------------*/
-
-/* Menu settings */
-.mainMenu {
+.js-menu__hamburger--black {
     display: none;
 }
-.mainMenu.hamburger {
+.js-menu__hamburger--red {
     display: block;
     position: absolute;
     width: 760px;
@@ -187,28 +188,12 @@ pre {
     right: 0; 
     z-index: 70;
 }
-img.right {
-    display: block;
-    position: absolute;
-    cursor: pointer;
-    top: 0.625em;
-    right: 0;
-    height: 22px;
-    background-color: #f8f8f8;
-    z-index: 70;
-}
-nav.mainDoc { 
-    display: block;
-    position: absolute;
-    right: 0;
-    top: calc(1.25em + 0.625em);
-    padding: 0.5em;
-    width: calc(760px * 3 / 4);
-    background-color: #f8f8f8;
-    border: 0.025em solid #CCCCCC;
-    z-index: 90;
-    font-family: VuSans, sans-serif;
-}
+/*--------------------*/
+
+/* Menu settings */
+
+
+
 nav ul {
     list-style-type: none;
     font-size: 100%;
@@ -258,19 +243,10 @@ span.break {
 }
 
 
-/* Index Page */
-nav.index {
-    display: block;
-    font-size: 105%;
-    font-family: VuSans, sans-serif;
-    padding-left: 2.5em; 
-}
 ol a {
     text-decoration: none;
 }
-/*--------------------*/
 
-/* To Top Button */
 #toTop {
     display: none;
     position: fixed;
@@ -295,34 +271,12 @@ ol a {
     background-repeat: no-repeat;
     background-position: center center;
 }
-/*--------------------*/
 
-/* Table Settings */
-/*
-  table,td,th {
-  border: 1px solid black;
-  font-family: VuSans, sans-serif;
-  font-size: 0.8em;
-} 
-*/
 caption {
     font-family: VuSans, sans-serif;
     font-size: 0.95em;
 }
 
-/* Table Settings from Student Portfolio */
-
-table {
-    caption-side: top;
-    border-collapse: collapse;
-    font-family: VuSans, sans-serif;
-    font-size: 95%;
-    font-weight: normal;
-    border: 1px solid #000000;
-    margin-bottom: 20px;
-    table-layout: auto;
-    width: 100%;
-}
 
 table caption {
     font-size: 105%;
@@ -339,12 +293,7 @@ th {
     background-color: #F6DA74;
     text-align: center;
 }
-.alterColor tr:nth-child(even) {
-    background: #E8E8E8;
-}
-.alterColor tr:nth-child(odd) {
-    background: #FFF;
-}
+
 
 td {
     padding: 2px 5px 2px 10px;
@@ -355,27 +304,6 @@ td > p {
     padding-bottom: 3px;
 }
 
-/*
-col.col15 {
-    width: 15%;
-}
-col.col60 {
-    width: 60%;
-}
-col.col40 {
-    width: 40%;
-}
-col.col25 {
-    width: 25%;
-}
-col.col10 {
-    width: 10%;
-}
-col.col33 {
-    width: 33%;
-}
-*/
-
 .padding {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -383,21 +311,8 @@ col.col33 {
 .smallFont {
     font-size:80%;
 }
-.textCenter {
-    text-align:center;
-}
-.colorGreen  {
-    background-color: #00FF33;
-}
-.colorOrange {
-    background-color: #FF9900;
-}
-.colorBlue {
-    background-color: #00CCFF;
-}
-.colorYellow {
-    background-color: #FFFF00;
-}
+
+
 
 #searchInput {
     background-image: url('../images/search_icon.png');
@@ -425,4 +340,34 @@ input,select,option {
     border: 1px solid #ddd;
     padding: 3px;
     margin-top: 5px;
+}
+
+article li {
+    padding-left: 0.6em;
+    padding-bottom: 0.35em;
+    line-height: 1.3em;
+}
+article ul, ol {
+    padding-left: 2em;
+}
+article p {
+    padding-bottom: 0.7em;
+    line-height: 1.3em;
+}
+/* Code settins*/
+code, pre {
+    background-color: #d3d3d3;
+}
+code {
+    font-family: VuMono, monospace;
+    font-size: 0.9em;
+}
+pre {
+    display: block;
+    overflow-x: auto; 
+    padding: 0.3em;
+}
+article {
+    padding-left: 0px;
+    padding-right: 0px;
 }
