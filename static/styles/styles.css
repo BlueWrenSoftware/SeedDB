@@ -100,26 +100,24 @@ figure img {
     border: 0.025em solid #CCCCCC;
 }
 /* Headers settings*/
-section #pageHeader {
+#page-header {
     display: inline-block;
     padding-top: 0.625em;
     padding-bottom: 1.2em;
-}
-img.icon {
-    display: inline-block;
-    top: 0;
-    vertical-align: middle;	
-}
-span.tl21org {
-    font-family: VuSans, sans-serif
-}
-h1 {
     font-family: VuSerif, serif;
     font-size:1.375em;
     font-weight: normal;
     text-align: left;
     padding-left: 0.625em;
 }
+#page-header__icon {
+    display: inline-block;
+    top: 0.625em;
+    vertical-align: middle;	
+}
+/*span.tl21org {
+    font-family: VuSans, sans-serif
+}*/
 h2 {
     display: inline-block;
     /*text-align: center;*/
@@ -162,7 +160,7 @@ pre {
     padding: 0.3em;
 }
 /* Footer Settings */
-#pageFooter {
+#page-footer {
     clear: both;
     border-top: 0.025em solid #CCCCCC;
     border-bottom: 0.025em solid #CCCCCC;
@@ -172,7 +170,7 @@ pre {
     padding-bottom: 0.5em;
     text-align: center;
 }
-#pageFooter p {
+#page-footer p {
     font-size: 0.85em;
 }
 /*--------------------*/
