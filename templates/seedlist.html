@@ -5,23 +5,38 @@
       Seed Collection 
     </h2>
   </header>
-  <input type="text" id="searchInput" onkeyup="searchFunction('search-column')" placeholder="Search Seed Variety.." title="Type in a name">
+  <form>
+    <input type="text" id="js-search-input-seeds"
+	   onkeyup="searchFunction('search-seeds')"
+	   placeholder="Search Seed Variety..">
+  </form>
   <h3 class="chapter__sub3">
     Table of Records
   </h3>
-  <table class="page-content__table page-content__table--color" id="searchTable">
+  <table class="table-seeds table-seeds__row-color"
+	 id="js-search-table-seeds">
     <caption>List of Seeds in Storage</caption>
     <thead>
-      <tr><th>Seed Type Name</th><th id="search-column">Seed Variety Name</th><th>Number of Seed Packets</th><th>Total Seed Count</th><th>Total Seed Gram</th><th>Edit</th></tr>
+      <tr>
+	<th>Seed Type Name</th>
+	<th id="search-seeds">Seed Variety Name</th>
+	<th>Number of Seed Packets</th>
+	<th>Total Seed Count</th>
+	<th>Total Seed Gram</th><th>Edit</th>
+      </tr>
     </thead>
     % for row in data:
     <tr>
       <td>${row['seed_category']}</td>                          
       <td>${row['seed_variety_name']}</td>                          
-      <td class="page-content__table-col--text-center">${row['seedPacketCount']}</td>           
-      <td class="page-content__table-col--text-center">${row['totalSeedCount']}</td>                         
-      <td class="page-content__table-col--text-center">${row['totalSeedGram']}</td>
-      <td><a href="/editpackets?variety_id=${row['id_seed']}" class="edit-btn"><img src="/static/images/pencil.png" target="_blank" rel="noreferrer noopener"></a></td>
+      <td class="table-seeds__col--center">${row['seedPacketCount']}</td>           
+      <td class="table-seeds__col--center">${row['totalSeedCount']}</td>                      
+      <td class="table-seeds__col--center">${row['totalSeedGram']}</td>
+      <td>
+	<a href="/editpackets?variety_id=${row['id_seed']}" class="edit-btn">
+	  <img src="/static/images/pencil.png" target="_blank" rel="noreferrer noopener">
+	</a>
+      </td>
     </tr>
     % endfor
   </table>

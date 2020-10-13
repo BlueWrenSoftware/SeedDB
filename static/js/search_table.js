@@ -1,8 +1,8 @@
 function searchFunction(colId) {
     var input, filter, table, tr, td, i, txtValue, col, colId;
-    input = document.getElementById("searchInput");
+    input = document.getElementById("js-search-input-seeds");
     filter = input.value.toUpperCase();
-    table = document.getElementById("searchTable");
+    table = document.getElementById("js-search-table-seeds");
     tr = table.getElementsByTagName("tr");
     headers = table.getElementsByTagName("th");
     searchCol = document.getElementById(colId);
@@ -26,7 +26,7 @@ function searchFunction(colId) {
 }
 
 function toggle() {
-    var off=document.getElementById('searchTable');
+    var off=document.getElementById("js-search-table-seeds");
     if (off.style.display == "none") {
         off.style.display = "";
     } else {

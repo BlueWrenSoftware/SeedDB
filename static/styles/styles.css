@@ -42,8 +42,22 @@ body {
     font-size: 1em;
     font-weight: normal;
 }
-
-
+a {
+    decoration: none;
+}
+a:link {
+    color: #0000EE;
+    text-decoration: none;
+}
+a:visited {
+    color: #0000EE; /*#551A8B; */
+}
+a:hover {
+    color: #00CCFF;
+}
+a:active {
+    color: #FF0000;
+}
 /* DejaVu font settings */
 @font-face {
     font-family: VuSerif;
@@ -109,14 +123,24 @@ body {
     padding-top: 0.6em;
     padding-bottom: 0.3em;
 }
-.page-content__h4 { /*not used*/
+.chapter__sub4 { /*not used*/
     font-family: VuSans, sans-serif;
     font-size: 1.0025em;
     font-weight: normal;
     padding-top: 0.6em;
     padding-bottom: 0.3em;	
 }
-.page-menu__hamburger {
+article.article-paragraphs>p {
+    padding-bottom: 0.7em;
+    line-height: 1.3em;
+}
+.page-img--left {
+    dispaly: block;
+    margin-left:1.25em ;
+    padding: 0.15em;
+    border: 0.025em solid #CCCCCC;
+}
+.menu-hamburger {
     display: block;
     position: absolute;
     cursor: pointer;
@@ -125,7 +149,7 @@ body {
     height: 22px;
     z-index: 70;
 }
-.page-menu__hamburger--show { 
+.menu-hamburger--show { 
     display: block;
     position: absolute;
     right: 0;
@@ -136,20 +160,34 @@ body {
     border: 0.025em solid #CCCCCC;
     z-index: 90;
     font-family: VuSans, sans-serif;
+    
+}.menu-hamburger__list {
+    list-style-type: none;
+    font-size: 90%;
 }
-.page-content__img--left {
-    dispaly: block;
-    margin-left:1.25em ;
-    padding: 0.15em;
-    border: 0.025em solid #CCCCCC;
+.js-menu-hamburger--black {
+    display: none;
 }
-.page-content__menu {
+.js-menu-hamburger--red {
+    display: block;
+    position: absolute;
+    width: 760px;
+    height: 100%;
+    right: 0; 
+    z-index: 70;
+}
+.page-menu {
     display: block;
     font-size: 100%;
     font-family: VuSans, sans-serif;
     padding-left: 1.5em; 
 }
-.page-content__table {
+.page-menu__list {
+    list-style-type: none;
+    font-size: 90%;
+}
+    
+table.table-seeds {
     caption-side: top;
     border-collapse: collapse;
     font-family: VuSans, sans-serif;
@@ -160,14 +198,29 @@ body {
     table-layout: auto;
     width: 100%;
 }    
-.page-content__table--color tr:nth-child(even) {
+table.table-seeds__row-color tr:nth-child(even) {
     background: #E8E8E8;
 }
-.page-content__table--color tr:nth-child(odd) {
+table.table-seeds__row-color tr:nth-child(odd) {
     background: #FFF;
 }
-.page-content__table-col--text-center {
-    text-align:center;
+table td.table-seeds__col--center {
+    text-align: center;
+}
+table caption {
+    font-size: 1.125em;
+    padding-bottom: 10px;
+}
+table th {
+    padding: 2px 5px 2px 10px;
+    border: 1px solid #000000;
+    background-color: #F6DA74;
+    text-align: center;
+}
+table td {
+    padding: 2px 5px 2px 10px;
+    margin: 0px; 
+    border: 1px solid #000000;
 }
 #page-footer {
     clear: both;
@@ -182,77 +235,18 @@ body {
 #page-footer p {
     font-size: 0.85em;
 }
-.js-menu__hamburger--black {
-    display: none;
-}
-.js-menu__hamburger--red {
-    display: block;
-    position: absolute;
-    width: 760px;
-    height: 100%;
-    right: 0; 
-    z-index: 70;
-}
-/*--------------------*/
-
-/* Menu settings */
-
-
-
-nav ul {
-    list-style-type: none;
-    font-size: 100%;
-}
-nav ul>ul {
-    padding-left: 0.5em;
-    font-size: 98%;
-}
-nav ul>ul>ul {
-    padding-left: 1em;
-    font-size: 97%
-}
-nav a {
-    text-decoration: none;
-}
-/*--------------------*/
-
-/* Link Settins */
-a:link {
-    color: #0000EE;
-}
-a:visited {
-    color: #0000EE; /*#551A8B; */
-}
-a:hover {
-    color: #00CCFF;
-}
-a:active {
-    color: #FF0000;
-}
-/*--------------------*/
-
-hr {
-    display: block;
-    width: 760px;
-    /*min-width: 400px;*/
-    border-bottom: 0.025em solid #CCCCCC;
-}
-li hr {
-    display: block;
-    width:300px;
-    border-bottom: 0.025em solid #CCCCCC;
-    margin-bottom: 0.3125em;
-}
-span.break {
-    display: block;
+#js-search-input-seeds {
+    background-image: url('../images/search_icon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 50%;
+    font-size: 16px;
+    padding: 12px 20px 12px 40px;
+    border: 1px solid #ddd;
+    margin-bottom: 12px;
 }
 
-
-ol a {
-    text-decoration: none;
-}
-
-#toTop {
+#js-page--to-top {
     display: none;
     position: fixed;
     bottom: 5px;
@@ -271,108 +265,12 @@ ol a {
     padding: 15px;
     border-radius: 4px;
 }
-#toTop:hover {
+#js-page--to-top:hover {
     background-image: url(../images/to_top_word_red_icon_fat.png);
     background-repeat: no-repeat;
     background-position: center center;
 }
 
-caption {
-    font-family: VuSans, sans-serif;
-    font-size: 0.95em;
-}
-
-
-table caption {
-    font-size: 105%;
-    padding-bottom: 10px;
-}
-
-th {
-    font-family: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-    padding: 4px;
-    margin: 0px;
-    border: 1px solid #000000;
-    background-color: #F6DA74;
-    text-align: center;
-}
-
-
-td {
-    padding: 2px 5px 2px 10px;
-    margin: 0px; 
-    border: 1px solid #000000;
-}
-td > p {
-    padding-bottom: 3px;
-}
-
-.padding {
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-.smallFont {
-    font-size:80%;
-}
 
 
 
-#js-content-table__search {
-    background-image: url('../images/search_icon.png');
-    background-position: 10px 10px;
-    background-repeat: no-repeat;
-    width: 100%;
-    font-size: 16px;
-    padding: 12px 20px 12px 40px;
-    border: 1px solid #ddd;
-    margin-bottom: 12px;
-}
-
-dialog {
-    position: relative;
-    top: 0%;
-    left: 0%;
-    padding: 10px; 
-    border: 1px solid #ddd;
-}dialog>form {
-    padding: 5px;
-    font-size: 16px;
-}
-input,select,option {
-    font-size: 110%;
-    border: 1px solid #ddd;
-    padding: 3px;
-    margin-top: 5px;
-}
-
-article li {
-    padding-left: 0.6em;
-    padding-bottom: 0.35em;
-    line-height: 1.3em;
-}
-article ul, ol {
-    padding-left: 2em;
-}
-article p {
-    padding-bottom: 0.7em;
-    line-height: 1.3em;
-}
-/* Code settins*/
-code, pre {
-    background-color: #d3d3d3;
-}
-code {
-    font-family: VuMono, monospace;
-    font-size: 0.9em;
-}
-pre {
-    display: block;
-    overflow-x: auto; 
-    padding: 0.3em;
-}
-article {
-    padding-left: 0px;
-    padding-right: 0px;
-}

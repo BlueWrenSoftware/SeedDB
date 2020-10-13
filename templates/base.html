@@ -15,12 +15,12 @@
 <div class="pages">
 
 <!-- Menu settings -->
-<section id="js-open-menu">
-  <img class="page-menu__hamburger" src="./static/images/hamburger_icon.svg" >
-  <div class="js-menu__hamburger--black">
-    <img class="page-menu__hamburger" src="./static/images/hamburger_active.svg" >
-    <nav class="page-menu__hamburger--show">
-      <ul>
+<section class="js-menu-hamburger">
+  <img class="menu-hamburger" src="./static/images/hamburger_icon.svg">
+  <div class="js-menu-hamburger--black">
+    <img class="menu-hamburger" src="./static/images/hamburger_active.svg">
+    <nav class="menu-hamburger--show">
+      <ul class="menu-hamburger__list">
 	<li><a href="/">Home Page</a></li>
 	<li><a href="/seedlist">Seed Collection</a></li>
 	<li><a href="#">Contents</a></li>
@@ -42,7 +42,7 @@
 
 ${self.body()}
 
-<div  id="toTop" onclick="topFunction()" title="Go to Top"></div>
+<div id="js-page--to-top" onclick="topFunction()" title="Go to Top"></div>
 
 <section>
   <footer id="page-footer">
@@ -50,8 +50,8 @@ ${self.body()}
   </footer>
 </section>
 <script src="/static/js/menu.js"></script>
-<script src="/static/js/to_top.js"></script>
-<script src="/static/js/search_table.js"></script>
+<script src="/static/js/to-top.js"></script>
+<script src="/static/js/search-table.js"></script>
 	
 </div>
 </body>
