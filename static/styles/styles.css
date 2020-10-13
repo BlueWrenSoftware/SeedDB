@@ -1,3 +1,14 @@
+/* BEM - Block Element Modifier is used in this style sheet.
+
+   - used in names of blocks, elements and modifiers.
+   __ followed by an element
+   -- followed by a modifier
+
+   Cascading is kept to a minimum and naming of classes are supporting
+   the symantic structure of the HTML5.
+   Names indicating a format are avoided and as not to confuse the semantic
+   HTML5 tags.
+   
 /* Start of default settings */
 header, section, article, figure, figcaption, nav, footer, video, address, dialog {
     display: block;
@@ -31,12 +42,7 @@ body {
     font-size: 1em;
     font-weight: normal;
 }
-#body-wrapper {
-    width: 760px;
-    min-width: 400px;
-    margin: 0 auto;
-    position: relative;
-}
+
 
 /* DejaVu font settings */
 @font-face {
@@ -64,15 +70,14 @@ body {
     src: url("../fonts/DejaVuSerif-Italic.ttf") format("truetype");
     font-style: normal;
 }
-/* End font settings */
 
-/* End default settings */
-
-
-
-
-
-#page-header {
+.pages {
+    width: 760px;
+    min-width: 400px;
+    margin: 0 auto;
+    position: relative;
+}
+.page-header-sub1 {
     display: inline-block;
     padding-top: 0.625em;
     padding-bottom: 1.2em;
@@ -82,12 +87,12 @@ body {
     text-align: left;
     padding-left: 0.625em;
 }
-#page-header__logo {
+.page-header-sub1__logo {
     display: inline-block;
     top: 0.625em;
     vertical-align: middle;	
 }
-.page-content__h2 {
+.chapter__sub2 {
     display: inline-block;
     font-family: VuSans, sans-serif;
     font-size: 1.245em;
@@ -97,7 +102,7 @@ body {
    /* width: 760px;*/
     min-width: 400px;
 }
-.page-content__h3 {
+.chapter__sub3 {
     font-family: VuSans, sans-serif;
     font-size: 1.125em;
     font-weight: normal;
@@ -145,7 +150,7 @@ body {
     padding-left: 1.5em; 
 }
 .page-content__table {
-        caption-side: top;
+    caption-side: top;
     border-collapse: collapse;
     font-family: VuSans, sans-serif;
     font-size: 95%;
@@ -314,7 +319,7 @@ td > p {
 
 
 
-#searchInput {
+#js-content-table__search {
     background-image: url('../images/search_icon.png');
     background-position: 10px 10px;
     background-repeat: no-repeat;
