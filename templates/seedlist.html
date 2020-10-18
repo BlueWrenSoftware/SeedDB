@@ -29,19 +29,24 @@
     <tr>
       <td>${row['seed_category']}</td>                          
       <td>${row['seed_variety_name']}</td>                          
-      <td class="table-seeds__col--center">${row['seedPacketCount']}</td>           
-      <td class="table-seeds__col--center">${row['totalSeedCount']}</td>                      
-      <td class="table-seeds__col--center">${row['totalSeedGram']}</td>
+      <td class="table-seeds__col--center">
+	${row['seedPacketCount']}</td>           
+      <td class="table-seeds__col--center">
+	${row['totalSeedCount']}</td>                      
+      <td class="table-seeds__col--center">
+	${row['totalSeedGram']}</td>
       <td>
-	<a href="/editpackets?variety_id=${row['id_seed']}" class="edit-btn">
-	  <img src="/static/images/pencil.png" target="_blank" rel="noreferrer noopener">
+	<a href="/editpackets?variety_id=${row['id_seed']}"
+	   class="edit-btn">
+	  <img src="/static/images/pencil.png" target="_blank"
+	       rel="noreferrer noopener">
 	</a>
       </td>
     </tr>
     % endfor
   </table>
 </section>
-<script>    
-</script>
+
 <%inherit file="base.html"/>
+
         
