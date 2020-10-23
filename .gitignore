@@ -3,5 +3,6 @@
 *.db
 /winvenv/
 /.venv/
-/db/seed.sqlite
 /my_project/
+/env/
+/documentation/

@@ -197,7 +197,7 @@ table.table-seeds {
     border: 1px solid #000000;
     margin-bottom: 20px;
     table-layout: auto;
-    width: 100%;
+    /*width: 100%;*/
 }    
 table.table-seeds__row-color tr:nth-child(even) {
     background: #E8E8E8;
