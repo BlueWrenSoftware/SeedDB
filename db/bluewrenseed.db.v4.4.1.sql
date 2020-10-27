@@ -3,6 +3,7 @@ id_seed to id_seed_variety
 all id_name_location foreing keys changed to id_location
 id_seed_type chaged to id_seed_group
 SeedTypes chaged to SeedGroups
+Propagations linked to SeedPackets and not Seeds
 */
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS "Harvests";
@@ -81,9 +82,9 @@ CREATE TABLE IF NOT EXISTS "Locations" (
 DROP TABLE IF EXISTS "PropagationDates";
 CREATE TABLE IF NOT EXISTS "PropagationDates" (
 	"id_propagation_date"	INTEGER PRIMARY KEY AUTOINCREMENT,
-	"id_seed_variety"	INTEGER,
+	"id_seed_packet"	INTEGER,
 	"id_propagation"	INTEGER,
-	FOREIGN KEY("id_seed_variety") REFERENCES "Seeds"("id_seed_variety") ON DELETE SET NULL,
+	FOREIGN KEY("id_seed_packet") REFERENCES "SeedPackets"("id_seed_packet") ON DELETE SET NULL,
 	FOREIGN KEY("id_propagation") REFERENCES "Propagations"("id_propagation") ON DELETE SET NULL
 );
 DROP TABLE IF EXISTS "PlantingDates";
