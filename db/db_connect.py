@@ -12,11 +12,11 @@ def create_connection(db_file):
 
 def select_view(conn):
     cur = conn.cursor()
-    cur.execute("SELECT * FROM ViewSeedList")
+    cur.execute("SELECT * FROM ViewSeedList2")
     rows = cur.fetchall()
     for row in rows:
         print(row)
 
-conn = sqlite3.connect('test.db')
+conn = sqlite3.connect('seed.db')
 select_view(conn)
 conn.close()

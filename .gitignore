@@ -3,6 +3,6 @@
 *.db
 /winvenv/
 /.venv/
-/my_project/
 /env/
 /documentation/
+
