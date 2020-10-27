@@ -9,7 +9,6 @@
     <tbody id="seed-edit-table-body">
       % for row in data:
       <tr>
-	<td>?</td>
         <input type="hidden" name="packet_id"
 	       id="packet-id" value="${row[0]}"/>
         <td >
@@ -60,12 +59,6 @@
       </tr>
     </tbody>
   </table>
-  <table class="table-seeds table-seeds__row-color">
-    <tr><th>Packet<br>Location</th><th>Date<br>Acquired</th><th>Date<br>Use-By</th>
-      <th>Seed<br>Company</th>
-    </tr>
-  </table>
-
   <section class="form--input">
     <input class="form--text-size" type="button"
 	   onClick="addPacket()" value='Add'>

@@ -24,22 +24,22 @@ class SeedDb(object):
     def editpackets(self, variety_id):
         with sqlite3.connect('./db/seed.db') as conn:
             curs = conn.cursor()
-            curs.execute('SELECT id_seed_type, seed_category FROM SeedTypes;')
+            curs.execute('SELECT id_seed_group, seed_group FROM SeedGroups;')
             seedtypes = curs.fetchall()
-            curs.execute('SELECT id_seed, seed_variety_name FROM Seeds;')
+            curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds;')
             varieties = curs.fetchall()
             curs.execute("""SELECT 	
                           id_seed_packet,
-	                  id_seed,
+	                  id_seed_variety,
                           packet_code,
                           date_purchased,
 	                  date_use_by,
 	                  seed_count,
 	                  seed_gram,
 	                  packet_treatment,
-	                  storage_location
+	                  id_location
                         FROM SeedPackets                           
-                        WHERE id_seed=?""", (variety_id,))
+                        WHERE id_seed_variety=?""", (variety_id,))
             data = curs.fetchall()
         return {
                 'seedtypes': seedtypes,
@@ -56,11 +56,11 @@ class SeedDb(object):
             for x in d:                
                 if x[2]:  # existing packet we are updating
                     conn.execute("""UPDATE SeedPackets
-                                    SET id_seed=?, seed_count=?
+                                    SET id_seed_variety=?, seed_count=?
                                     WHERE id_seed_packet=?""", x)
                 elif int(x[1]):  # new packed we are adding
                     conn.execute(
-                        """INSERT INTO SeedPackets (id_seed, seed_count)
+                        """INSERT INTO SeedPackets (id_seed_variety, seed_count)
                              VALUES(?,?)""", x[0:2])                
                     
         raise cherrypy.HTTPRedirect('seedlist')
