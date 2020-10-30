@@ -1,3 +1,4 @@
+/* Can also be used for version bkuewrenseed.db.v4.3.sql*/
 INSERT INTO Users(id_user,first_name,last_name) VALUES
 ('adm','Admin','Administrator'),
 ('drk','Dirk','Koudstaal')

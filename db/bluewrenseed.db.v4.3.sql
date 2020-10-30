@@ -45,22 +45,22 @@ CREATE TABLE IF NOT EXISTS "SeedPackets" (
 	"seed_count"	INTEGER,
 	"seed_gram"	INTEGER,
 	"packet_treatment"	TEXT,
-	"storage_location"	INTEGER,
+	"id_location"	INTEGER,
 	"id_user"	TEXT,
 	FOREIGN KEY("id_company") REFERENCES "Companies"("id_company") ON DELETE SET NULL,
 	FOREIGN KEY("id_user") REFERENCES "Users"("id_user") ON DELETE SET NULL,
-	FOREIGN KEY("storage_location") REFERENCES "Companies"("id_company") ON DELETE SET NULL,
+	FOREIGN KEY("id_location") REFERENCES "Locations"("id_location") ON DELETE SET NULL,
 	FOREIGN KEY("id_seed") REFERENCES "Seeds"("id_seed") ON DELETE SET NULL
 );
 DROP TABLE IF EXISTS "Seeds";
 CREATE TABLE IF NOT EXISTS "Seeds" (
-	"id_seed"	INTEGER PRIMARY KEY AUTOINCREMENT,
-	"id_seed_type"	INTEGER,
+	"id_seed_variety"	INTEGER PRIMARY KEY AUTOINCREMENT,
+	"id_variety_group"	INTEGER,
 	"seed_variety_name"	TEXT,
 	"seed_variety_description"	TEXT,
 	"seed_variety_notes"	TEXT,
 	"id_user"	TEXT,
-	FOREIGN KEY("id_seed_type") REFERENCES "SeedTypes"("id_seed_type") ON DELETE SET NULL,
+	FOREIGN KEY("id_variety_type") REFERENCES "SeedGroups"("id_variety_group") ON DELETE SET NULL,
 	FOREIGN KEY("id_user") REFERENCES "Users"("id_user") ON DELETE SET NULL
 );
 DROP TABLE IF EXISTS "Locations";
@@ -104,9 +104,9 @@ CREATE TABLE IF NOT EXISTS "Users" (
 	"last_name"	TEXT,
 	PRIMARY KEY("id_user")
 );
-DROP TABLE IF EXISTS "SeedTypes";
-CREATE TABLE IF NOT EXISTS "SeedTypes" (
-	"id_seed_type"	INTEGER PRIMARY KEY AUTOINCREMENT,
+DROP TABLE IF EXISTS "VarietyGroups";
+CREATE TABLE IF NOT EXISTS "VarietyGroups" (
+	"id_variety_group"	INTEGER PRIMARY KEY AUTOINCREMENT,
 	"seed_category"	TEXT,
 	"seed_description"	TEXT,
 	"id_user"	TEXT NOT NULL,
