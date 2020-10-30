@@ -67,6 +67,8 @@ class SeedDb(object):
 
 
 if __name__ == '__main__':
+
+    
     conf = {
         '/': {
             'tools.sessions.on': True,
@@ -95,5 +97,7 @@ if __name__ == '__main__':
     # Register the Mako tool
     from makotool import MakoTool
     cherrypy.tools.template = MakoTool()
+    cherrypy.server.socket_host = '0.0.0.0'
+    cherrypy.server.socket_port = 8080
     cherrypy.quickstart(SeedDb(), '', conf)
 

@@ -1,10 +1,18 @@
-<%inherit file="base.html"/>
+
 <form method="post" action="/seedsubmit" id="seed-edit-form">
-  <table class="table-seeds table-seeds__row-color"
+  <table class="table-seeds table__overflow table__fixed"
 	 id="js-table-seed-edit">
     <caption>Edit Seed List</caption>
+
     <thead>
+<<<<<<< HEAD
       <tr><th>Seed<br>Group</th><th>Seed<br>Variety</th><th>Seed<br>Count</th>
+=======
+      <tr>
+	<th>Packet<br>Code</th><th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th>
+	<th>Packet<br>Location</th><th>Date<br>Acquired</th><th>Date<br>Use-By</th><th>Seed<br>Company</th>
+      </tr>
+>>>>>>> table
     </thead>
     <tbody id="seed-edit-table-body">
       % for row in data:
@@ -19,7 +27,7 @@
           </select>
         </td>
         <td>
-          <select  name="variety_id">
+          <select name="variety_id">
             % for each in varieties:
             % if row[1] == each[0]:
             <option value="${each[0]}" selected >${each[1]}</option>
@@ -33,10 +41,15 @@
           <input type="number" name="seed_count"
 		 id="packet-select" value="${row[5]}"/>
         </td>
+	<td>?</td>
+	<td>?</td>
+	<td>?</td>
+	<td>?</td>
       </tr>
       % endfor
       
       <tr style="display: none;" id="js-template-row">
+	<td>?</td>
         <input type="hidden" name="packet_id" value=""/>
         <td>
           <select id="seed-type-select" name="seed_type_id">
@@ -53,9 +66,10 @@
             </select>
           </td>
         <td>
-          <input type="number" name="seed_count"
+          <input class="form--input" type="number" name="seed_count"
 		 id="packet-select" value="0"/>
         </td>
+
       </tr>
     </tbody>
   </table>
@@ -69,4 +83,5 @@
   </section>
 </form>
 <script src="/static/js/add-packet.js"></script>
+<%inherit file="base.html"/>
 
