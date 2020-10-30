@@ -1,6 +1,0 @@
-table.table-seeds__row-color tr:nth-child(even) {
-    background: #E8E8E8;
-}
-table.table-seeds__row-color tr:nth-child(odd) {
-    background: #FFF;
-}
