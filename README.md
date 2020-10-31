@@ -4,10 +4,10 @@ Saturday, 18 April 2020; 22:01
 ### Setup
 Create a virtual environment callled venv
 install the following packages using pip:
- - Jinja2
+ - mako
  - cherrypy
 ### Run
-python3 seeddb.py
+python3 seedb.py
 ### Navigate
 http://127.0.0.1:8080
 
