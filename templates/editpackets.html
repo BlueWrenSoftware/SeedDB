@@ -1,22 +1,55 @@
-
+<article class="article--paragraph">
+  <header>
+    <h3 class="chapter--h3">
+      How to Edit
+    </h3>
+  </header>
+  <p>
+    The values in the white cells can be edited.
+  </p>
+  <p>
+    The grey row at the bottom of the table allows the creation of a new seed packet. Please note only new seed packets can be created from exciting seed varieties in the Seed Packet List. 
+  </p>
+  
+  <h4 class="chapter--h4">
+    Number Cells:
+  </h4>
+  <p>
+    Click in the cell. You can then highlight, delete or enter a number.
+  </p>
+  <p>
+    Of course you can also use the increase of decrease button in the right of the number cell.
+  </p>
+  <h4 class="chapter--h4">
+    Text Cells:
+  </h4>
+  <p>
+    Click in the cell for a pull-down list of choices.
+  </p>
+</article>
 <form method="post" action="/seedsubmit" id="seed-edit-form">
   <table class="table-seeds table__overflow table__fixed"
 	 id="js-table-seed-edit">
     <caption>Edit Seed List</caption>
+    <col class="col__10">
+    <col>
+    <col class="col__10">
+    <col>
+    <col>
+    <col>
+    <col>
+    <col>
+    <col>
 
     <thead>
-<<<<<<< HEAD
-      <tr><th>Seed<br>Group</th><th>Seed<br>Variety</th><th>Seed<br>Count</th>
-=======
       <tr>
-	<th>Packet<br>Code</th><th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th>
+	<th>Packet<br>Code</th><th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th><th>Seed<br>Gram</th>
 	<th>Packet<br>Location</th><th>Date<br>Acquired</th><th>Date<br>Use-By</th><th>Seed<br>Company</th>
       </tr>
->>>>>>> table
     </thead>
     <tbody id="seed-edit-table-body">
       % for row in data:
-      <tr>
+      <tr class="row__bottom-line">
         <input type="hidden" name="packet_id"
 	       id="packet-id" value="${row[0]}"/>
         <td >
@@ -45,31 +78,37 @@
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
+	<td>?</td>
+	<td>?</td>
       </tr>
       % endfor
       
-      <tr style="display: none;" id="js-template-row">
-	<td>?</td>
-        <input type="hidden" name="packet_id" value=""/>
+      <tr class="row__color" id="js-template-row">
+        <input type="hidden" name="packet_id" value="">
         <td>
-          <select id="seed-type-select" name="seed_type_id">
+          <select id="seed-type-select" name="seed_type_id" class="select-value__background">
             % for each in seedtypes:
             <option value="${each[0]}">${each[1]}</option>
             % endfor
           </select>
         </td>
         <td>
-          <select  name="variety_id">
+          <select  name="variety_id" class="select-value__background">
             % for each in varieties:
             <option value="${each[0]}">${each[1]}</option>
               % endfor
             </select>
           </td>
         <td>
-          <input class="form--input" type="number" name="seed_count"
-		 id="packet-select" value="0"/>
+          <input class="enter-value__background" type="number" name="seed_count"
+		 id="packet-select" value="0">
         </td>
-
+	<td>?</td>
+	<td>?</td>
+	<td>?</td>
+	<td>?</td>
+	<td>?</td>
+	<td>?</td>
       </tr>
     </tbody>
   </table>

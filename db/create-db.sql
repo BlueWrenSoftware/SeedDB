@@ -149,40 +149,4 @@ group by
 	seed_group,
 	id_seed_variety,
 	seed_variety_name;
-DROP VIEW IF EXISTS "ViewSeedList";
-CREATE VIEW ViewSeedList as
-select
-	SeedGroups.seed_group
-	,Seeds.seed_variety_name
-	,count(SeedPackets.id_seed_packet) as seedPacketCount
-	,ifnull(sum(SeedPackets.seed_count),0) as totalSeedCount
-	,ifnull(sum(SeedPackets.seed_gram),0) as totalSeedGram
-        ,Seeds.id_seed_variety
-from SeedGroups 
-join Seeds 
-using (id_seed_group)
-left outer join SeedPackets
-using (id_seed_variety)
-group by
-	id_seed_group,
-	seed_group,
-	id_seed_variety,
-	seed_variety_name; 
-/*select
-	SeedGroups.seed_group
-	,Seeds.seed_variety_name
-	,count(SeedPackets.id_seed_packet) as seedPacketCount
-	,ifnull(sum(SeedPackets.seed_count),0) as totalSeedCount
-	,ifnull(sum(SeedPackets.seed_gram),0) as totalSeedGram
-	,Seeds.id_seed_variety
-from SeedGroups 
-join Seeds 
-using (id_seed_variety)
-left outer join SeedPackets
-using (id_seed_variety)
-group by
-	id_seed_group,
-	seed_group,
-	id_seed_variety,
-	seed_variety_name;*/
 COMMIT;
