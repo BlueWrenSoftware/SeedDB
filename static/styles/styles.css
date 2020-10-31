@@ -209,20 +209,25 @@ table.table-seeds {
     /*width: 100%;*/
 }
 table.table__fixed {
-    width:110%;
+    width: 120%;
+    margin-left: -10%;
 } 
-table.table__overflow {
+/*table.table__overflow {
     margin-left: -40px;
-}
+}*/
 .col__10 {
     width: 10%;
 }
-.col__40 {
-    width: 40%;
+.col__15 {
+    width: 15%
 }
 .col__20 {
     width: 20%;
 }
+.col__40 {
+    width: 40%;
+}
+
 
 table td.table-seeds__col--center {
     text-align: center;
