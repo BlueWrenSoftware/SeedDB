@@ -31,8 +31,8 @@ class SeedDb(object):
             curs.execute("""SELECT 	
                           id_seed_packet,
 	                  id_seed_variety,
-                          packet_code,
-                          date_purchased,
+                          packet_label,
+                          date_obtained,
 	                  date_use_by,
 	                  seed_count,
 	                  seed_gram,
