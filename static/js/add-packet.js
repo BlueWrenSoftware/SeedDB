@@ -5,3 +5,8 @@ function addPacket() {
     let table = document.getElementById("js-table-seed-edit");
     table.append(newRow);
 }
+
+async function deletePacket(packetId) {
+    const response = await fetch('/deletepacket?packet_id=' + packetId, {method: 'DELETE'});
+    window.location.reload();
+}
