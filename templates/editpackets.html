@@ -43,8 +43,8 @@
 
     <thead>
       <tr>
-	<th>Packet<br>Code</th><th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th><th>Seed<br>Gram</th>
-	<th>Packet<br>Location</th><th>Date<br>Acquired</th><th>Date<br>Use-By</th><th>Seed<br>Company</th>
+	<th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th><th>Seed<br>Gram</th><th>Packet<br>Label</th>
+	<th>Packet<br>Location</th><th>Date<br>Acquired</th><th>Date<br>UseBy</th><th>Seed<br>Company</th>
       </tr>
     </thead>
     <tbody id="seed-edit-table-body">
@@ -84,7 +84,7 @@
       % endfor
       
       <tr class="row__color" id="js-template-row">
-        <input type="hidden" name="packet_label" value="">
+        <input type="hidden" name="packet_id" value="">
         <td>
           <select id="seed-type-select" name="seed_type_id" class="select-value__background">
             % for each in seedtypes:
