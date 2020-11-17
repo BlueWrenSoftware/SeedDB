@@ -46,7 +46,14 @@ class SeedDb(object):
                 'varieties': varieties,
                 'data': data
             }
-        
+    
+    @cherrypy.expose
+    def deletepacket(self, packet_id):
+        print(packet_id)
+        with sqlite3.connect('./db/seed.db') as conn:            
+            conn.execute("""DELETE FROM SeedPackets                                    
+                            WHERE id_seed_packet=?""", (packet_id,))
+    
     @cherrypy.expose
     def seedsubmit(self, packet_id, seed_type_id, variety_id, seed_count):
         d = list(zip(variety_id, seed_count, packet_id))

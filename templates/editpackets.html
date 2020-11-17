@@ -70,16 +70,16 @@
             % endfor
           </select>
         </td>
-        <td>
-          <input type="number" name="seed_count"
-		 id="packet-select" value="${row[5]}"/>
-        </td>
+        <td> <input type="number" name="seed_count"
+		    id="packet-select" value="${row[5]}"</input></td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
+        <td><input type="button" value="X"
+		   onClick="deletePacket(${row[0]})"></input></td>
       </tr>
       % endfor
       
@@ -107,12 +107,12 @@
           <input class="enter-value__background" type="number" name="seed_count"
 		 id="packet-select" value="0">
         </td>
-	<td>?</td>
-	<td>?</td>
-	<td>?</td>
-	<td>?</td>
-	<td>?</td>
-	<td>?</td>
+	      <td>?</td>
+	      <td>?</td>
+	      <td>?</td>
+	      <td>?</td>
+	      <td>?</td>
+	      <td>?</td>
       </tr>
     </tbody>
   </table>
