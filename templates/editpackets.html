@@ -43,8 +43,10 @@
 
     <thead>
       <tr>
-	<th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th><th>Seed<br>Gram</th><th>Packet<br>Label</th>
-	<th>Packet<br>Location</th><th>Date<br>Acquired</th><th>Date<br>UseBy</th><th>Seed<br>Company</th>
+	<th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th>
+	<th>Seed<br>Gram</th><th>Packet<br>Label</th>
+	<th>Packet<br>Location</th><th>Date<br>Acquired</th>
+	<th>Date<br>UseBy</th><th>Seed<br>Company</th><th>Delete</th>
       </tr>
     </thead>
     <tbody id="seed-edit-table-body">
@@ -71,15 +73,16 @@
           </select>
         </td>
         <td> <input type="number" name="seed_count"
-		    id="packet-select" value="${row[5]}"</input></td>
+		    id="packet-select" value="${row[5]}"></td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
-        <td><input type="button" value="X"
-		   onClick="deletePacket(${row[0]})"></input></td>
+        <td class="table-seeds__col--center">
+	  <img src="/static/images/trash_can.png" onClick="deletePacket(${row[0]})">
+	</td>
       </tr>
       % endfor
       
