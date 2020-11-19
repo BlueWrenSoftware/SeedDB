@@ -209,6 +209,8 @@ table.table-seeds__row-color tr:nth-child(odd) {
 }
     
 table.table-seeds {
+    margin-left: auto;
+    margin-right: auto;
     caption-side: top;
     border-collapse: collapse;
     font-family: VuSans, sans-serif;
