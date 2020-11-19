@@ -10,6 +10,10 @@ class SeedDb(object):
         return {}
 
     @cherrypy.expose
+    def about(self):
+        return {}
+
+    @cherrypy.expose
     def seedlist(self):
         ret = {'data': []}
         with sqlite3.connect('./db/seed.db') as conn:
@@ -89,6 +93,9 @@ if __name__ == '__main__':
         },
         '/editpackets': {
             'tools.template.template': 'editpackets.html'
+        },
+        '/about': {
+            'tools.template.template': 'about.html'            
         },
         '/static': {
             'tools.staticdir.on': True,

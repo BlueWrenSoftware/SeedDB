@@ -1,4 +1,7 @@
-<article class="article--paragraph">
+<div class="js-display-instructions">
+  <button id="js-instructions" onclick="toggleInstructions()">Open Instructions</button>
+  <div class="js-display-instructions--closed ">
+    <article class="js-display-instructions--open">
   <header>
     <h3 class="chapter--h3">
       How to Edit
@@ -26,7 +29,9 @@
   <p>
     Click in the cell for a pull-down list of choices.
   </p>
-</article>
+  </article>
+</div>
+</div>
 <form method="post" action="/seedsubmit" id="seed-edit-form">
   <table class="table-seeds table__overflow table__fixed"
 	 id="js-table-seed-edit">
@@ -80,7 +85,7 @@
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
-        <td class="table-seeds__col--center">
+        <td class="del-row__col--center">
 	  <img src="/static/images/trash_can.png" onClick="deletePacket(${row[0]})">
 	</td>
       </tr>

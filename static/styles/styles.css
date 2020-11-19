@@ -180,6 +180,17 @@ section.section--paragraph p {
     right: 0; 
     z-index: 70;
 }
+.js-display-instructions {
+    padding-top: 0.75em;
+}
+.js-display-instructions--closed {
+    display: none;
+}
+.js-display-instructions--open {
+    display: block;
+    position: relative;
+    padding: 0.5em 0 0.5em 0;
+}
 .page-menu {
     display: block;
     font-size: 100%;
@@ -231,6 +242,10 @@ table.table__fixed {
 
 table td.table-seeds__col--center {
     text-align: center;
+}
+table td.del-row__col--center {
+    text-align: center;
+    cursor: pointer;
 }
 table caption {
     font-size: 1.125em;
