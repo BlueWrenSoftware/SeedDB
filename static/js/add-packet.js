@@ -10,3 +10,5 @@ async function deletePacket(packetId) {
     const response = await fetch('/deletepacket?packet_id=' + packetId, {method: 'DELETE'});
     window.location.reload();
 }
+
+//document.querySelector(".js-today").valueAsDate = new Date();
