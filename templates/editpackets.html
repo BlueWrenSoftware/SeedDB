@@ -32,7 +32,7 @@
   </article>
 </div>
 </div>
-<form method="post" action="/seedsubmit" id="seed-edit-form">
+<form method="post" action="/seedsubmit" >
   <table class="table-seeds table__overflow table__fixed"
 	 id="js-table-seed-edit">
     <caption>Edit Seed List</caption>
@@ -79,8 +79,7 @@
             % endfor
           </select>
         </td>
-        <td> <input type="number" name="seed_count"
-		    id="packet-select" value="${row[5]}"></td>
+        <td> <input type="number" name="seed_count" value="${row[5]}"></td>
 	<td>?</td>
 	<td>?</td>
 	<td>?</td>
