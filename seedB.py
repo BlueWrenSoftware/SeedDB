@@ -26,31 +26,53 @@ class SeedDb(object):
     
     @cherrypy.expose
     def editpackets(self, variety_id):
+        seedtypes = {'data': []}
+        varieties = {'data': []}
+        seedpackets = {'data': []} 
         with sqlite3.connect('./db/seed.db') as conn:
+            conn.row_factory = sqlite3.Row
             curs = conn.cursor()
+
             curs.execute('SELECT id_seed_group, seed_group FROM SeedGroups;')
             seedtypes = curs.fetchall()
+
             curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds;')
             varieties = curs.fetchall()
-            curs.execute("""SELECT 	
-                          id_seed_packet,
-	                  id_seed_variety,
-                          packet_label,
-                          date_obtained,
-	                  date_use_by,
-	                  seed_count,
-	                  seed_gram,
-	                  packet_treatment,
-	                  id_location
-                        FROM SeedPackets                           
-                        WHERE id_seed_variety=?""", (variety_id,))
-            data = curs.fetchall()
+
+            curs.execute('SELECT * FROM SeedPackets WHERE id_seed_variety=?', (variety_id,))
+            seedpackets = curs.fetchall()
         return {
-                'seedtypes': seedtypes,
-                'varieties': varieties,
-                'data': data
-            }
-    
+            'seedtypes': seedtypes,
+            'varieties': varieties,
+            'seedpackets': seedpackets
+        }
+            
+            
+            
+        #     curs = conn.cursor()
+        #     curs.execute('SELECT id_seed_group, seed_group FROM SeedGroups;')
+        #     seedtypes = curs.fetchall()
+        #     curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds;')
+        #     varieties = curs.fetchall()
+        #     curs.execute("""SELECT 	
+        #                   id_seed_packet,
+	#                   id_seed_variety,
+        #                   packet_label,
+        #                   date_obtained,
+	#                   date_use_by,
+	#                   seed_count,
+	#                   seed_gram,
+	#                   packet_treatment,
+	#                   id_location
+        #                 FROM SeedPackets                           
+        #                 WHERE id_seed_variety=?""", (variety_id,))
+        #     data = curs.fetchall()
+        # return {
+        #         'seedtypes': seedtypes,
+        #         'varieties': varieties,
+        #         'data': data
+        #   }
+
     @cherrypy.expose
     def deletepacket(self, packet_id):
         print(packet_id)

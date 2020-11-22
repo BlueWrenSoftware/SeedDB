@@ -56,20 +56,19 @@
 	<th>Date<br>UseBy</th><th>Seed<br>Company</th><th>Save</th><th>Delete</th>
       </tr>
     </thead>
-    <tbody id="seed-edit-table-body">
-      % for row in data:
+    <tbody>
+      % for row in seedpackets:
       <tr class="row__bottom-line">
-        <input type="hidden" name="packet_id"
-	       id="packet-id" value="${row[0]}"/>
+        <input type="hidden" value="${row['id_seed_packet']}"/>
         <td >
-           <select id="seed-type-select" name="seed_type_id">
+           <select>
             % for each in seedtypes:
             <option value="${each[0]}">${each[1]}</option>
             % endfor
           </select>
         </td>
         <td>
-          <select name="variety_id">
+          <select>
             % for each in varieties:
             % if row[1] == each[0]:
             <option value="${each[0]}" selected >${each[1]}</option>
@@ -79,13 +78,13 @@
             % endfor
           </select>
         </td>
-        <td> <input type="number" name="seed_count" value="${row[5]}"></td>
-	<td>?</td>
-	<td>?</td>
-	<td>?</td>
-	<td><input type="date"  name="date_obtained" value="${row[3]}"></td>
-	<td><input type="date"></td>
-	<td>?</td>
+        <td><input type="number" value="${row['seed_count']}"></td>
+	<td><input type="number" value="${row['seed_gram']}"></td>
+	<td><input type="text" value="${row['packet_label']}"></td>
+	<td>needs description</td>
+	<td><input type="date" value="${row['date_obtained']}"></td>
+	<td><input type="date" value="${row['date_use_by']}"></td>
+	<td>needs description</td>
 	<td class="del-row__col--center">
 	  <img src="./static/images/save.png"></td>
         <td class="del-row__col--center">
@@ -93,42 +92,6 @@
 	</td>
       </tr>
       % endfor
-      
-      <tr class="row__color" id="js-template-row">
-        <input type="hidden" name="packet_id" value="">
-        <td>
-          <select id="seed-type-select" name="seed_type_id" class="select-value__background">
-            % for each in seedtypes:
-            <option value="${each[0]}">${each[1]}</option>
-            % endfor
-          </select>
-        </td>
-        <td>
-          <select  name="variety_id" class="select-value__background">
-            % for each in varieties:
-            % if row[1] == each[0]:
-            <option value="${each[0]}" selected >${each[1]}</option>
-            % else:
-            <option value="${each[0]}">${each[1]}</option>
-            % endif
-            % endfor
-            </select>
-          </td>
-        <td>
-          <input class="enter-value__background" type="number" name="seed_count"
-		 id="packet-select" value="0">
-        </td>
-	<td>?</td>
-	<td>?</td>
-	<td>?</td>
-	<td><input type="date"></td>
-	<td><input type="date"></td>
-	<td>?</td>
-	<td class="del-row__col--center">
-	  <img src="./static/images/save.png"></td>
-	<td class="del-row__col--center">
-	  <img src="/static/images/trash_can.png"></td>
-      </tr>
     </tbody>
   </table>
   <section class="form--input">

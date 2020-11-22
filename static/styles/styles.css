@@ -337,7 +337,27 @@ input[type='number'] {
     font-size: 100%;
     width: 100%;
 }
-select {
+input[type='text'] {
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    text-align: center;
+    padding-right: 1px;
+    border: none;
+    background: #FFFFFF;
+    font-size: 100%;
+    width: 100%;
+}
+input[type='date'] {
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    text-align: center;
+    padding-right: 1px;
+    border: none;
+    background: #FFFFFF;
+    font-size: 130%;
+    width: 100%;
+}
+select{
     -webkit-appearance: none;
     -moz-appearance:none;
     border: none;

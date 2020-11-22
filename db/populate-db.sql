@@ -129,7 +129,7 @@ INSERT INTO "Companies" ("id_company","company_name","company_address","company_
  (16,'The Lost Seed Company','NotEntered','NotEntered','NotEntered','adm'),
  (17,'Vilmorin','NotEntered','NotEntered','NotEntered','adm'),
  (18,'Erica Vale','NotEntered','NotEntered','NotEntered','adm');
-INSERT INTO "SeedPackets" ("id_seed_packet","id_seed_variety","id_company","id_location","packet_label","date_obtained","date_use_by","seed_count","seed_gram","packet_treatment","id_user") VALUES (1,1,7,NULL,NULL,'2015-05-04','',30,NULL,NULL,'adm'),
+INSERT INTO "SeedPackets" ("id_seed_packet","id_seed_variety","id_company","id_location","packet_label","date_obtained","date_use_by","seed_count","seed_gram","packet_treatment","id_user") VALUES (1,1,7,NULL,'af100','2015-05-04','',30,60,NULL,'adm'),
  (2,2,1,NULL,NULL,'','',200,NULL,NULL,'adm'),
  (3,3,1,NULL,NULL,'','',30,NULL,NULL,'adm'),
  (4,4,1,NULL,NULL,'','',20,NULL,NULL,'adm'),
@@ -241,6 +241,6 @@ INSERT INTO "SeedPackets" ("id_seed_packet","id_seed_variety","id_company","id_l
  (110,105,5,NULL,NULL,'','',20,NULL,NULL,'adm'),
  (111,105,12,NULL,NULL,'','',20,NULL,NULL,'adm'),
  (112,9,NULL,NULL,NULL,NULL,NULL,100,NULL,NULL,NULL),
- (113,1,NULL,NULL,NULL,NULL,NULL,200,NULL,NULL,NULL),
- (114,1,NULL,NULL,NULL,NULL,NULL,190,NULL,NULL,NULL);
+ (113,1,NULL,NULL,'at200','2015-05-04',NULL,200,400,NULL,NULL),
+ (114,1,NULL,NULL,'qw300','2018-05-04',NULL,190,380,NULL,NULL);
 COMMIT;
