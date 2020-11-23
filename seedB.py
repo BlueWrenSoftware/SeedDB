@@ -46,32 +46,6 @@ class SeedDb(object):
             'varieties': varieties,
             'seedpackets': seedpackets
         }
-            
-            
-            
-        #     curs = conn.cursor()
-        #     curs.execute('SELECT id_seed_group, seed_group FROM SeedGroups;')
-        #     seedtypes = curs.fetchall()
-        #     curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds;')
-        #     varieties = curs.fetchall()
-        #     curs.execute("""SELECT 	
-        #                   id_seed_packet,
-	#                   id_seed_variety,
-        #                   packet_label,
-        #                   date_obtained,
-	#                   date_use_by,
-	#                   seed_count,
-	#                   seed_gram,
-	#                   packet_treatment,
-	#                   id_location
-        #                 FROM SeedPackets                           
-        #                 WHERE id_seed_variety=?""", (variety_id,))
-        #     data = curs.fetchall()
-        # return {
-        #         'seedtypes': seedtypes,
-        #         'varieties': varieties,
-        #         'data': data
-        #   }
 
     @cherrypy.expose
     def editpackets2(self, variety_id):
@@ -121,7 +95,17 @@ class SeedDb(object):
                     
         raise cherrypy.HTTPRedirect('seedlist')
 
+    @cherrypy.expose
+    def seedsubmit2(self,seed_count):
+        with sqlite3.connect('./db/seed.db') as con:
+            conn.row_factory = sqlite3.Row
+            curs = conn.cursor()
+            conn.execute(
+                        """INSERT INTO SeedPackets (seed_count)
+                             VALUES(?)""", seed_count) 
 
+
+    
 if __name__ == '__main__':
 
     

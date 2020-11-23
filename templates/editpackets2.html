@@ -1,5 +1,5 @@
 
-<form method="post" action="/seedsubmit" >
+<form method="post" action="/seedsubmit2" >
   <table class="table-seeds table__overflow table__fixed"
 	 id="js-table-seed-edit">
     <caption>hello</caption>
@@ -45,7 +45,7 @@
             % endfor
           </select>
         </td>
-        <td><input type="number" value="${row['seed_count']}"></td>
+        <td><input type="number" value="${row['seed_count']}" id="seed_count"></td>
 	<td><input type="number" value="${row['seed_gram']}"></td>
 	<td><input type="text" value="${row['packet_label']}"></td>
 	<td>needs description</td>
