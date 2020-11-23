@@ -1,0 +1,75 @@
+
+<form method="post" action="/seedsubmit" >
+  <table class="table-seeds table__overflow table__fixed"
+	 id="js-table-seed-edit">
+    <caption>hello</caption>
+    <col class="col__20">
+    <col class="col__15">
+    <col class="col__10">
+    <col>
+    <col>
+    <col>
+    <col class="col__20">
+    <col>
+    <col>
+    <col class="col__10">
+    <col class="col__10">
+
+    <thead>
+      <tr>
+	<th>Seed<br>Type</th><th>Seed<br>Variety</th><th>Seed<br>Count</th>
+	<th>Seed<br>Gram</th><th>Packet<br>Label</th>
+	<th>Packet<br>Location</th><th>Date<br>Acquired</th>
+	<th>Date<br>UseBy</th><th>Seed<br>Company</th><th>Save</th><th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      % for row in seedpackets:
+      <tr class="row__bottom-line">
+        <input type="hidden" value="${row['id_seed_packet']}"/>
+        <td >
+           <select>
+            % for each in seedtypes:
+            <option value="${each[0]}">${each[1]}</option>
+            % endfor
+          </select>
+        </td>
+        <td>
+          <select>
+            % for each in varieties:
+            % if row[1] == each[0]:
+            <option value="${each[0]}" selected >${each[1]}</option>
+            % else:
+            <option value="${each[0]}">${each[1]}</option>
+            % endif
+            % endfor
+          </select>
+        </td>
+        <td><input type="number" value="${row['seed_count']}"></td>
+	<td><input type="number" value="${row['seed_gram']}"></td>
+	<td><input type="text" value="${row['packet_label']}"></td>
+	<td>needs description</td>
+	<td><input type="date" value="${row['date_obtained']}"></td>
+	<td><input type="date" value="${row['date_use_by']}"></td>
+	<td>needs description</td>
+	<td class="del-row__col--center">
+	  <img src="./static/images/save.png"></td>
+        <td class="del-row__col--center">
+	  <img src="/static/images/trash_can.png" onClick="deletePacket(${row[0]})">
+	</td>
+      </tr>
+      % endfor
+    </tbody>
+  </table>
+  <section class="form--input">
+    <input class="form--text-size" type="button"
+	   onClick="addPacket()" value='Add'>
+    <input class="form--text-size" type="submit" value="Save"
+	   id="submit-btn" onClick="toggle()">
+    <input class="form--text-size" type="button"
+	   onClick="location.href='seedlist'" value='Cancel'>
+  </section>
+</form>
+<script src="/static/js/add-packet.js"></script>
+<%inherit file="base.html"/>
+

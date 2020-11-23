@@ -74,6 +74,29 @@ class SeedDb(object):
         #   }
 
     @cherrypy.expose
+    def editpackets2(self, variety_id):
+        seedtypes = {'data': []}
+        varieties = {'data': []}
+        seedpackets = {'data': []} 
+        with sqlite3.connect('./db/seed.db') as conn:
+            conn.row_factory = sqlite3.Row
+            curs = conn.cursor()
+
+            curs.execute('SELECT id_seed_group, seed_group FROM SeedGroups;')
+            seedtypes = curs.fetchall()
+
+            curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds WHERE id_seed_variety=?', (variety_id,))
+            varieties = curs.fetchall()
+
+            curs.execute('SELECT * FROM SeedPackets WHERE id_seed_variety=?', (variety_id,))
+            seedpackets = curs.fetchall()
+        return {
+            'seedtypes': seedtypes,
+            'varieties': varieties,
+            'seedpackets': seedpackets
+        }
+
+    @cherrypy.expose
     def deletepacket(self, packet_id):
         print(packet_id)
         with sqlite3.connect('./db/seed.db') as conn:            
@@ -115,6 +138,9 @@ if __name__ == '__main__':
         },
         '/editpackets': {
             'tools.template.template': 'editpackets.html'
+        },
+        '/editpackets2': {
+            'tools.template.template': 'editpackets2.html'            
         },
         '/about': {
             'tools.template.template': 'about.html'            
