@@ -97,9 +97,7 @@ class SeedDb(object):
 
     @cherrypy.expose
     def seedsubmit2(self,seed_count):
-        with sqlite3.connect('./db/seed.db') as con:
-            conn.row_factory = sqlite3.Row
-            curs = conn.cursor()
+        with sqlite3.connect('./db/seed.db') as conn:
             conn.execute(
                         """INSERT INTO SeedPackets (seed_count)
                              VALUES(?)""", seed_count) 
