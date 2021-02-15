@@ -62,7 +62,7 @@ class SeedDb(object):
             curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds WHERE id_seed_variety=?', (variety_id,))
             varieties = curs.fetchall()
 
-            curs.execute('SELECT * FROM SeedPackets WHERE id_seed_variety=?', (variety_id,))
+            curs.execute('SELECT id_seed_variety, seed_count FROM SeedPackets WHERE id_seed_variety=?', (variety_id,))
             seedpackets = curs.fetchall()
         return {
             'seedtypes': seedtypes,
@@ -102,7 +102,28 @@ class SeedDb(object):
                         """INSERT INTO SeedPackets (seed_count)
                              VALUES(?)""", seed_count) 
 
+    @cherrypy.expose
+    def editpackets3(self, variety_id):
+        seedtypes = {'data': []}
+        varieties = {'data': []}
+        seedpackets = {'data': []} 
+        with sqlite3.connect('./db/seed.db') as conn:
+            conn.row_factory = sqlite3.Row
+            curs = conn.cursor()
 
+            curs.execute('SELECT id_seed_group, seed_group FROM SeedGroups;')
+            seedtypes = curs.fetchall()
+
+            curs.execute('SELECT id_seed_variety, seed_variety_name FROM Seeds;')
+            varieties = curs.fetchall()
+
+            curs.execute('SELECT * FROM SeedPackets WHERE id_seed_variety=?', (variety_id,))
+            seedpackets = curs.fetchall()
+        return {
+            'seedtypes': seedtypes,
+            'varieties': varieties,
+            'seedpackets': seedpackets
+        }
     
 if __name__ == '__main__':
 
